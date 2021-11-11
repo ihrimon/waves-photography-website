@@ -2,7 +2,7 @@ import React from 'react';
 // import { IoLocationSharp } from "react-icons/io5";
 // import { BsFillTelephoneFill } from "react-icons/bs";
 // import { MdEmail } from "react-icons/md";
-import logo from '../../images/logo.png';
+import logo from '../../../images/logo.png';
 import { NavLink } from 'react-router-dom';
 
 const Footer = () => {

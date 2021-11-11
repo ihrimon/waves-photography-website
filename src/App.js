@@ -1,22 +1,23 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './Pages/Home/Home/Home';
-import Navigation from './Pages/Navigation/Navigation';
 import Login from './Pages/Authentication/Login/Login';
 import AllProducts from './Pages/AllProducts/AllProducts';
 import NotFound from './Pages/NotFound/NotFound';
-import Footer from './Pages/Footer/Footer';
 import AuthProvider from './Context/AuthProvider';
-import Admin from './Pages/Admin/Admin';
 import Register from './Pages/Authentication/Register/Register';
 import Purchase from './Pages/Home/Purchase/Purchase';
+import PrivateRoute from './Pages/Authentication/PrivateRoute/PrivateRoute';
+import DashBoard from './Pages/DashBoard/DashBoard';
+import MakeAdmin from './Pages/DashBoard/Admin/MakeAdmin/MakeAdmin';
+import Contact from './Pages/Contact/Contact';
+
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <Router>
-          <Navigation></Navigation>
           <Switch>
             <Route exact path="/">
               <Home></Home>
@@ -27,12 +28,18 @@ function App() {
             <Route path="/allProducts">
               <AllProducts></AllProducts>
             </Route>
-            <Route path="/purchase/:productId">
+            <Route path="/contact">
+              <Contact></Contact>
+            </Route>
+            <PrivateRoute path="/purchase/:productId">
               <Purchase></Purchase>
+            </PrivateRoute>
+            <Route path="/makeAdmin">
+              <MakeAdmin></MakeAdmin>
             </Route>
-            <Route path="/admin">
-              <Admin></Admin>
-            </Route>
+            <PrivateRoute path="/dashboard">
+              <DashBoard></DashBoard>
+            </PrivateRoute>
             <Route path="/login">
               <Login></Login>
             </Route>
@@ -43,7 +50,6 @@ function App() {
               <NotFound></NotFound>
             </Route>
           </Switch>
-          <Footer></Footer>
         </Router>
       </AuthProvider>
     </div>

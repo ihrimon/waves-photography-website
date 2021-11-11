@@ -28,15 +28,13 @@ const Register = () => {
         e.preventDefault();
     }
 
-
     return (
         <div>
-            <div className="w-25 bg-color mx-auto my-5 border-radius custom-shadow">
+            {!isLoading && <div className="w-25 bg-color mx-auto my-5 border-radius custom-shadow">
                 <h4 className="theme-color pt-4">Create an Account</h4>
                 <p><small>use social account</small></p>
                 <div>
                     <button type="submit" className="btn btn-google text-light me-2">Google login</button>
-                    <button type="submit" className="btn btn-success text-light ms-2">Github login</button>
                 </div>
                 <form onSubmit={handleRegistrationSubmit} className="w-75 mx-auto mt-3">
                     <p><small>or use your email account</small></p>
@@ -84,10 +82,23 @@ const Register = () => {
                     </div>
 
                     <button type="submit" className="btn theme-btn px-5 text-light my-3">Submit</button>
+                    <p className="pb-4">Already have an account? <Link to="/login" className="text-decoration-none theme-color fw-bold">Login</Link></p>
                 </form>
-                <p className="pb-4">Already have an account? <Link to="/login" className="text-decoration-none theme-color fw-bold">Login</Link></p>
             </div>
-        </div>
+            }
+            {isLoading && <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            }
+
+            {user?.email && <div class="alert alert-success" role="alert">
+                User created Successfully.!
+            </div>}
+
+            {authError && <div class="alert alert-danger" role="alert">
+                {authError}
+            </div>}
+        </div >
     );
 };
 

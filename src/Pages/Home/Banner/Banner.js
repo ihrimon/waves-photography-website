@@ -1,19 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import img from '../../../images/banner.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
+import './Banner.css';
 
 const Banner = () => {
+    const arrowIcon = <FontAwesomeIcon icon={faLongArrowAltRight} />
+
     return (
-        <div className="bg-color">
-            <div className="container">
-                <div className="d-flex justify-content-center align-items-center">
-                    <div className="col-lg-6 col-12 text-start">
-                        <h1 className="fw-bold w-75">BEAUTY SALON FOR EVERY WOMEN</h1>
-                        <p className="w-75">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur corporis aspernatur natus obcaecati alias distinctio eius delectus veritatis tenetur rerum.</p>
-                        <Link to="/allProducts" className="btn theme-btn px-5 text-light">Explore...</Link>
-                    </div>
-                    <div className="col-lg-6 col-12">
-                        <img src={img} className="img-fluid w-75" alt="" />
+        <div className='container'>
+            <div className="img-banner border-radius">
+                <div className="d-flex flex-lg-row flex-column align-items-center">
+                    <div className="col-12 pt-5 pt-lg-0 text-light text-left color-theme">
+                        <h1 className="text-size mt-3 text-stroke w-75 mx-auto" >Panasonic Lumix DC-G100 4K Mirrorless Digital Camera</h1>
+                        <p className="w-75 mx-auto mb-4">Lumix is Panasonic's brand of digital cameras, ranging from pocket point-and-shoot models to digital SLRs. ... Some Lumix models are branded with Leica lenses (e.g. Nocticron or Elmarit lenses), although Leica does not manufacture the lenses. Others are rebranded as Leica cameras with different cosmetic stylings.
+                        </p>
+                        <Link to="/allProducts"><button className="btn theme-btn text-light px-4 mb-3" type="submit" >{arrowIcon} <span className="ms-2">Explore...</span></button></Link>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import useAuth from '../../../hooks/useAuth';
 // import useAuth from '../../../hooks/useAuth';
 import Product from '../Products/Product/Product';
 
@@ -11,21 +12,22 @@ const Products = () => {
             .then(data => setProducts(data));
     }, []);
 
-    // const { isLoading } = useAuth();
-    // if (isLoading) {
-    //     return (
-    //         <div className="d-flex justify-content-center align-items-center spinner-style">
-    //             <div className="d-flex justify-content-center spinner-grow" role="status">
-    //                 <span className="visually-hidden">Loading...</span>
-    //             </div>
-    //         </div>
-    //     )
-    // }
+    const { isLoading } = useAuth();
+    if (isLoading) {
+        return (
+            <div className="d-flex justify-content-center align-items-center spinner-style">
+                <div className="d-flex justify-content-center spinner-grow" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        )
+    }
     return (
         <div>
-            <div className="container my-5">
-                <h2 className="mb-4 text-center theme-color">Best Package For Your Travel
+            <div className="container p-5 my-3">
+                <h2 className="mb-4 text-center theme-color">Features Products
                 </h2>
+                <hr/>
                 <div className="row row-cols-1 row-cols-md3 g-4">
                     {
                         products.map(product => <Product

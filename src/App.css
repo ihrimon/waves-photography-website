@@ -3,15 +3,24 @@
 }
 
 .theme-color{
-  color: #f63e7b
+  color: #17c6aa
 }
 
 .theme-btn{
-  background-color: #f63e7b;
+  background-color: #17c6aa;
+}
+
+.theme-btn:hover{
+  color: black;
+  background-color: #404e75;
+}
+
+.text-color{
+  color: #404e75;
 }
 
 .bg-color{
-  background-color: #fff8f5;
+  background-color: #e2ebef;
 }
 
 .custom-shadow{
@@ -19,7 +28,7 @@
 }
 
 .border-radius{
-  border-radius: 20px;
+  border-radius: 30px;
 }
 
 .btn-google{
