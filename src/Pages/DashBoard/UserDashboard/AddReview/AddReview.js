@@ -5,23 +5,23 @@ const AddReview = () => {
     const { register } = useForm();
     return (
         <div className="container w-lg-25 shadow-lg my-5">
-            <h4 className="text-center py-4">Add Package</h4>
+            <h4 className="text-center py-4">Add Review</h4>
             <div className="text-start">
                 <form className="px-4 pb-5">
                     <div className="mb-3">
-                        <label for="exampleFormControlInput1" className="form-label">Package Title</label>
-                        <input type="text" className="form-control" id="exampleFormControlInput1" {...register("name")} placeholder="package title here" required />
+                        <label for="exampleFormControlInput1" className="form-label">User Name</label>
+                        <input type="text" className="form-control" id="exampleFormControlInput1" {...register("name")} placeholder="reviewer name" required />
                     </div>
                     <div className="mb-3">
                         <label for="exampleFormControlTextarea1" className="form-label">Description</label>
                         <textarea className="form-control" id="exampleFormControlTextarea1" {...register("description")} placeholder="some text here" rows="3" required></textarea>
                     </div>
                     <div className="mb-3">
-                        <label for="exampleFormControlInput1" className="form-label">Price</label>
-                        <input type="number" className="form-control" id="exampleFormControlInput1" {...register("price")} placeholder="$ price" required />
+                        <label for="exampleFormControlInput1" className="form-label">Rating (out of 5)</label>
+                        <input type="number" className="form-control" id="exampleFormControlInput1" {...register("rating")} placeholder="rating" required />
                     </div>
                     <div className="mb-3">
-                        <label for="exampleFormControlInput1" className="form-label">Price</label>
+                        <label for="exampleFormControlInput1" className="form-label">Img URL</label>
                         <input className="form-control" id="exampleFormControlInput1" {...register("img")} placeholder="image url" required />
                     </div>
 

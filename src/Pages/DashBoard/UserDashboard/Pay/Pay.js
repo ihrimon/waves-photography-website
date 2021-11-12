@@ -4,7 +4,7 @@ const Pay = () => {
     return (
         <div>
             <form className="w-75 mx-auto mt-3">
-                <p><small>or use your email account</small></p>
+                <p><small>Payment Method</small></p>
                 <div className="form-floating mb-3">
                     <input
                         type="text"

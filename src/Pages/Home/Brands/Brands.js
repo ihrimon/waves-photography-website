@@ -13,7 +13,7 @@ const Brands = () => {
         <div >
             <div className="container bg-color border-radius p-5">
                 <h2>Top Brands</h2>
-                <div className="row row-cols-2 row-cols-lg-4 g-5 g-lg-5">
+                <div className="row row-cols-2 row-cols-lg-5 g-5 g-lg-5">
                     <div className="col">
                         <div className="p-3 border ">
                             <img src={img1} className="w-75" alt="" />
@@ -42,6 +42,16 @@ const Brands = () => {
                     <div className="col">
                         <div className="p-3 border bg-light">
                             <img src={img6} className="w-75" alt="" />
+                        </div>
+                    </div>
+                    <div className="col">
+                        <div className="p-3 border bg-light">
+                            <img src={img7} className="w-75" alt="" />
+                        </div>
+                    </div>
+                    <div className="col">
+                        <div className="p-3 border bg-light">
+                            <img src={img8} className="w-75" alt="" />
                         </div>
                     </div>
                     <div className="col">

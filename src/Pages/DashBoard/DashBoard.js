@@ -1,155 +1,3 @@
-// import * as React from 'react';
-// import AppBar from '@mui/material/AppBar';
-// import Box from '@mui/material/Box';
-// import CssBaseline from '@mui/material/CssBaseline';
-// import Divider from '@mui/material/Divider';
-// import Drawer from '@mui/material/Drawer';
-// import Toolbar from '@mui/material/Toolbar';
-// import { Button, Typography } from '@mui/material';
-// import { Link } from 'react-router-dom';
-// import { Switch, Route, useRouteMatch } from "react-router-dom";
-
-// import useAuth from '../../hooks/useAuth';
-// import Pay from './UserDashboard/Pay/Pay';
-// import Review from './UserDashboard/Review/Review';
-// import ManageOrders from './Admin/ManageOrders/ManageOrders';
-// import AddProduct from './Admin/AddProduct/AddProduct';
-// import MakeAdmin from './Admin/MakeAdmin/MakeAdmin';
-// import ManageProducts from './Admin/MangeProducts/ManageProducts';
-// import Home from '../Home/Home/Home';
-// import logo from '../../images/logo.png'
-// import MyOrders from './UserDashboard/MyOrders/MyOrders';
-
-
-// const drawerWidth = 220;
-
-// function Dashboard(props) {
-//     const { window } = props;
-//     const [mobileOpen, setMobileOpen] = React.useState(false);
-
-//     let { path, url } = useRouteMatch();
-//     const { admin, logOut } = useAuth();
-
-//     const handleDrawerToggle = () => {
-//         setMobileOpen(!mobileOpen);
-//     };
-
-//     const drawer = (
-//         <div>
-//             <Toolbar />
-//             <Link to="/home"><img src={logo} alt="" /></Link> <br />
-//             <Divider />
-// <Link to="/home"><Button variant="outlined">Home</Button></Link> <br />
-// <Link to={`${url}/dashboard`}><Button variant="outlined">Dashboard</Button></Link> <br />
-// {!admin && <Box>
-//     <Link to={`${url}/pay`}><Button variant="outlined">Pay</Button></Link> <br />
-//     <Link to={`${url}/myOrders`}><Button variant="outlined">MyOrders</Button></Link> <br />
-//     <Link to={`${url}/review`}><Button variant="outlined">Review</Button></Link> <br />
-// </Box>
-// }
-
-// {admin &&
-//     <Box>
-//         <Link to={`${url}/manageOrders`}><Button variant="outlined">Manage All Orders</Button></Link> <br />
-//         <Link to={`${url}/addProduct`}><Button variant="outlined">Add A Product</Button></Link> <br />
-//         <Link to={`${url}/makeAdmin`}><Button variant="outlined">Make Admin</Button></Link> <br />
-//         <Link to={`${url}/manageProducts`}><Button variant="outlined">Manage Products</Button></Link> <br />
-//     </Box>
-// }
-
-// <Link to={`${url}/home`}><Button onClick={logOut} variant="outlined">Logout</Button></Link>
-
-//         </div>
-//     );
-
-//     const container = window !== undefined ? () => window().document.body : undefined;
-
-//     return (
-//         <Box sx={{ display: 'flex' }}>
-//             <CssBaseline />
-//             <AppBar
-//                 position="fixed"
-//                 sx={{
-//                     width: { sm: `calc(100% - ${drawerWidth}px)` },
-//                     ml: { sm: `${drawerWidth}px` },
-//                 }}
-//             >
-//                 <Toolbar>
-//                     <Typography variant="h6" noWrap component="div">
-//                         Dashboard
-//                     </Typography>
-//                 </Toolbar>
-//             </AppBar>
-//             <Box
-//                 component="nav"
-//                 sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-//                 aria-label="mailbox folders"
-//             >
-//                 {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-//                 <Drawer
-//                     container={container}
-//                     variant="temporary"
-//                     open={mobileOpen}
-//                     onClose={handleDrawerToggle}
-//                     ModalProps={{
-//                         keepMounted: true, // Better open performance on mobile.
-//                     }}
-//                     sx={{
-//                         display: { xs: 'block', sm: 'none' },
-//                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-//                     }}
-//                 >
-//                     {drawer}
-//                 </Drawer>
-//                 <Drawer
-//                     variant="permanent"
-//                     sx={{
-//                         display: { xs: 'none', sm: 'block' },
-//                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-//                     }}
-//                     open
-//                 >
-//                     {drawer}
-//                 </Drawer>
-//             </Box>
-//             <Box
-//                 component="main"
-//                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
-//             >
-//                 <Toolbar />
-// <Switch>
-//     <Route exact path={`${path}/pay`}>
-//         <Pay></Pay>
-//     </Route>
-//     <Route path={`${path}/myOrders`}>
-//         <MyOrders></MyOrders>
-//     </Route>
-//     <Route path={`${path}/home`}>
-//         <Home></Home>
-//     </Route>
-//     <Route path={`${path}/review`}>
-//         <Review></Review>
-//     </Route>
-//     <Route path={`${path}/manageOrders`}>
-//         <ManageOrders></ManageOrders>
-//     </Route>
-//     <Route path={`${path}/addProduct`}>
-//         <AddProduct></AddProduct>
-//     </Route>
-//     <Route path={`${path}/makeAdmin`}>
-//         <MakeAdmin></MakeAdmin>
-//     </Route>
-//     <Route exact path={`${path}/manageProducts`}>
-//         <ManageProducts></ManageProducts>
-//     </Route>
-// </Switch>
-//             </Box>
-//         </Box>
-//     );
-// }
-
-// export default Dashboard;
-
 import React from 'react';
 import { NavLink, Switch, Route, useRouteMatch, Link } from 'react-router-dom';
 import MyOrders from './UserDashboard/MyOrders/MyOrders';
@@ -163,12 +11,21 @@ import useAuth from '../../hooks/useAuth';
 import Home from '../Home/Home/Home';
 import ManageProducts from './Admin/MangeProducts/ManageProducts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faMoneyCheckAlt, faCheckCircle, faSignOutAlt, faUserShield, faPlus, faTasks, faCompress } from '@fortawesome/free-solid-svg-icons'
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
     const { admin, logOut } = useAuth();
+
+    const homeIcon = <FontAwesomeIcon icon={faHome} />
+    const payIcon = <FontAwesomeIcon icon={faMoneyCheckAlt} />
+    const reviewIcon = <FontAwesomeIcon icon={faCheckCircle} />
+    const orderIcon = <FontAwesomeIcon icon={faTasks} />
+    const productIcon = <FontAwesomeIcon icon={faCompress} />
+    const addIcon = <FontAwesomeIcon icon={faPlus} />
+    const adminIcon = <FontAwesomeIcon icon={faUserShield} />
     const logoutIcon = <FontAwesomeIcon icon={faSignOutAlt} />
+
 
     const activeStyle = {
         backgroundColor: "#17c6aa",
@@ -186,19 +43,19 @@ const Dashboard = () => {
                             <Link to="/"><img src={logo} alt="" className="w-50" /></Link>
                             <ul className="list-group list-group-flush">
                                 <li className="list-group-item text-start border border-0">
-                                    <NavLink className="nav-link active" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to="/home">Home</NavLink>
+                                    <NavLink className="nav-link  text-color" aria-current="page" activeStyle={{ fontWeight: 'bold' }} to="/home">{homeIcon} <span className="ms-2">Home</span></NavLink>
                                 </li>
 
                                 {!admin &&
                                     <ul className="list-group list-group-flush">
                                         <li className="list-group-item text-start border border-0">
-                                            <NavLink className="nav-link active" aria-current="page" activeStyle={activeStyle} to={`${url}/myOrders`}>My orders</NavLink>
+                                            <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/pay`}>{payIcon} <span className="ms-2">Pay</span></NavLink>
                                         </li>
                                         <li className="list-group-item text-start border border-0">
-                                            <NavLink className="nav-link active" aria-current="page" style={{ color: '#000' }} activeStyle={activeStyle} to={`${url}/addReview`}>Add review</NavLink>
+                                            <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/myOrders`}>{orderIcon} <span className="ms-2">My Orders</span></NavLink>
                                         </li>
                                         <li className="list-group-item text-start border border-0">
-                                            <NavLink className="nav-link active" aria-current="page" style={{ color: '#000' }} activeStyle={activeStyle} to={`${url}/pay`}>Pay</NavLink>
+                                            <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/addReview`}>{reviewIcon} <span className="ms-2">Add Review</span></NavLink>
                                         </li>
                                     </ul>
                                 }
@@ -207,27 +64,29 @@ const Dashboard = () => {
                                 {admin &&
                                     <ul className="list-group list-group-flush">
                                         <li className="list-group-item text-start border border-0">
-                                            <NavLink className="nav-link active" aria-current="page" activeStyle={activeStyle} to={`${url}/manageOrders`}>Manage orders</NavLink>
+                                            <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/manageOrders`}>{orderIcon} <span className="ms-2">Manage Orders</span></NavLink>
                                         </li>
                                         <li className="list-group-item text-start border border-0">
-                                            <NavLink className="nav-link active" aria-current="page" activeStyle={activeStyle} to={`${url}/addProducts`}>Add Products</NavLink>
+                                            <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/addProducts`}>{addIcon} <span className="ms-2">Add Products</span></NavLink>
                                         </li>
                                         <li className="list-group-item text-start border border-0">
-                                            <NavLink className="nav-link active" aria-current="page" activeStyle={activeStyle} to={`${url}/makeAdmin`}>Make admin</NavLink>
+                                            <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/makeAdmin`}>{adminIcon} <span className="ms-2">Make Admin</span></NavLink>
+                                        </li>
+                                        <li className="list-group-item text-start border border-0">
+                                            <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/manageProducts`}>{productIcon} <span className="ms-2">Manage Product</span></NavLink>
                                         </li>
                                     </ul>
                                 }
 
                                 <li className="list-group-item text-start border border-0">
-
-                                    <NavLink className="nav-link active" aria-current="page" style={{ color: '#000' }} activeStyle={activeStyle} to={`${url}/logout`}><button className="btn btn-outline-success" onClick={logOut}>{logoutIcon} <span className="ms-2">Log Out</span></button></NavLink>
+                                    <NavLink onClick={logOut} className="nav-link active text-color" aria-current="page" activeStyle={{ fontWeight: 'bold' }} to="/home">{logoutIcon} <span className="ms-2">Log Out</span></NavLink>
                                 </li>
-                            </ul>
 
-                            {/* <Link to={`${url}/home`}><butt onClick={logOut} variant="outlined">Logout</butt></Link> */}
+                            </ul>
                         </div>
                         <div className="col-lg-10">
-                            <h2 className="ms-2 text-start">User Dashboard</h2>
+                            {!admin && <h4 className="ms-2 text-start border-bottom text-color">User Dashboard</h4>}
+                            {admin && <h4 className="ms-2 text-start border-bottom text-color">Admin Dashboard</h4>}
                             <Switch>
                                 <Route exact path={`${path}/pay`}>
                                     <Pay></Pay>
@@ -241,7 +100,7 @@ const Dashboard = () => {
                                 <Route path={`${path}/addReview`}>
                                     <AddReview></AddReview>
                                 </Route>
-                                <Route path={`${path}/manageOrders`}>
+                                <Route exact path={`${path}/manageOrders`}>
                                     <ManageOrders></ManageOrders>
                                 </Route>
                                 <Route path={`${path}/addProducts`}>
@@ -271,33 +130,49 @@ const Dashboard = () => {
                         </NavLink>
                         <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                             <div className="offcanvas-header">
-                                <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Cycle Mart</h5>
+                                <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Waves Photography</h5>
                                 <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div className="offcanvas-body">
                                 <ul className="list-group list-group-flush">
                                     <li className="list-group-item text-start border border-0">
-                                        <NavLink className="nav-link" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to="/home">Home</NavLink>
+                                        <NavLink className="nav-link  text-color" aria-current="page" activeStyle={{ fontWeight: 'bold' }} to="/home">{homeIcon} <span className="ms-2">Home</span></NavLink>
                                     </li>
 
-                                    <li className="list-group-item text-start border border-0">
-                                        <NavLink className="nav-link" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/myOrders`}>My Orders</NavLink>
-                                    </li>
+                                    {!admin &&
+                                        <ul className="list-group list-group-flush">
+                                            <li className="list-group-item text-start border border-0">
+                                                <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/pay`}>{payIcon} <span className="ms-2">Pay</span></NavLink>
+                                            </li>
+                                            <li className="list-group-item text-start border border-0">
+                                                <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/myOrders`}>{orderIcon} <span className="ms-2">My Orders</span></NavLink>
+                                            </li>
+                                            <li className="list-group-item text-start border border-0">
+                                                <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/addReview`}>{reviewIcon} <span className="ms-2">Add Review</span></NavLink>
+                                            </li>
+                                        </ul>
+                                    }
+
+
+                                    {admin &&
+                                        <ul className="list-group list-group-flush">
+                                            <li className="list-group-item text-start border border-0">
+                                                <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/manageOrders`}>{orderIcon} <span className="ms-2">Manage Orders</span></NavLink>
+                                            </li>
+                                            <li className="list-group-item text-start border border-0">
+                                                <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/addProducts`}>{addIcon} <span className="ms-2">Add Products</span></NavLink>
+                                            </li>
+                                            <li className="list-group-item text-start border border-0">
+                                                <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/makeAdmin`}>{adminIcon} <span className="ms-2">Make Admin</span></NavLink>
+                                            </li>
+                                            <li className="list-group-item text-start border border-0">
+                                                <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/manageProducts`}>{productIcon} <span className="ms-2">Manage Product</span></NavLink>
+                                            </li>
+                                        </ul>
+                                    }
 
                                     <li className="list-group-item text-start border border-0">
-                                        <NavLink className="nav-link" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/manageOrders`}>Manage Orders</NavLink>
-                                    </li>
-
-                                    <li className="list-group-item text-start border border-0">
-                                        <NavLink className="nav-link active" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/addProducts`}>Add Products</NavLink>
-                                    </li>
-
-                                    <li className="list-group-item text-start border border-0">
-                                        <NavLink className="nav-link " aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/makeAdmin`}>Make Admin</NavLink>
-                                    </li>
-
-                                    <li className="list-group-item text-start border border-0">
-                                        <NavLink className="nav-link" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/pay`}>Pay</NavLink>
+                                        <NavLink onClick={logOut} className="nav-link active text-color" aria-current="page" activeStyle={{ fontWeight: 'bold' }} to="/home">{logoutIcon} <span className="ms-2">Log Out</span></NavLink>
                                     </li>
                                 </ul>
                             </div>
@@ -315,7 +190,7 @@ const Dashboard = () => {
                             <Route path={`${path}/addReview`}>
                                 <AddReview></AddReview>
                             </Route>
-                            <Route path={`${path}/manageOrders`}>
+                            <Route exact path={`${path}/manageOrders`}>
                                 <ManageOrders></ManageOrders>
                             </Route>
                             <Route path={`${path}/addProducts`}>
