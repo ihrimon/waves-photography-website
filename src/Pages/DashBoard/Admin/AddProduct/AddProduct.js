@@ -5,7 +5,7 @@ import axios from 'axios';
 const AddProduct = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:4000/products', data)
+        axios.post('https://pure-wildwood-79743.herokuapp.com/products', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Successfully Added')

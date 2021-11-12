@@ -11,7 +11,7 @@ const MyOrders = () => {
     const email = user.email
 
     useEffect(() => {
-        axios.post("http://localhost:4000/orders/email", { email: `${email}` })
+        axios.post("https://pure-wildwood-79743.herokuapp.com/orders/email", { email: `${email}` })
             .then(res => setMyOrders(res.data));
     }, [])
 
@@ -28,7 +28,7 @@ const MyOrders = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:4000/orders/${id}`, {
+                    fetch(`https://pure-wildwood-79743.herokuapp.com/orders/${id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())

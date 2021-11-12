@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import swal from 'sweetalert';
 
@@ -5,7 +6,7 @@ const ManageOrders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:4000/orders')
+        fetch('https://pure-wildwood-79743.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
@@ -28,45 +29,29 @@ const ManageOrders = () => {
 
     // Cancel Order
     const handleCancelOrder = id => {
-        swal({
-            title: "Are you sure?",
-            text: "Cancel for this order.",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-            .then((willDelete) => {
-                if (willDelete) {
-                    fetch(`http://localhost:4000/orders/${id}`, {
-                        method: 'DELETE'
-                    })
-                        .then(res => res.json())
-                        .then(data => {
-                            if (data.deletedCount > 0) {
-                                swal("Deleted!", "Deleted Successfully!", "success");
-                            }
-                        })
-                } else {
-                    swal("Delete Canceled!");
+        axios.delete(`https://pure-wildwood-79743.herokuapp.com/orders/${id}`)
+            .then(res => {
+                if (res.data.deletedCount > 0) {
+                    alert("Order Cancel Successfully!!")
                 }
             });
     }
 
     return (
         <div className="container">
-            <h2 className="mt-5 mb-3">Manage All Orders</h2>
+            <h3 className="mt-5 mb-3 text-color">Manage All Orders</h3>
             <div className="table-responsive">
                 <table className="table border table-hover">
-                    <thead>
+                    <thead className="bg-color">
                         <tr>
-                            <th className="text-start">SL.</th>
-                            <th className="text-start">Name</th>
-                            <th className="text-start">Email</th>
-                            <th className="text-start">Address</th>
-                            <th className="text-start">Service</th>
-                            <th className="text-start">Amount</th>
-                            <th className="text-start">Status</th>
-                            <th className="text-start"></th>
+                            <th className="text-start text-color">SL.</th>
+                            <th className="text-start text-color">Name</th>
+                            <th className="text-start text-color">Email</th>
+                            <th className="text-start text-color">Address</th>
+                            <th className="text-start text-color">Product Name</th>
+                            <th className="text-start text-color">Price</th>
+                            <th className="text-start text-color">Status</th>
+                            <th className="text-start text-color"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,7 +62,7 @@ const ManageOrders = () => {
                                     <td className="text-start">{order.name}</td>
                                     <td className="text-start">{order.email}</td>
                                     <td className="text-start">{order.address}</td>
-                                    <td className="text-start">{order.title}</td>
+                                    <td className="text-start">{order.productTitle}</td>
                                     <td className="text-start">${order.price}</td>
                                     {
                                         order.status === 'Pending' ? <td className="text-danger fw-bold">{order.status}</td> : <td className="text-success fw-bold">{order.status}</td>

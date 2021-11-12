@@ -5,8 +5,7 @@ import useAuth from '../../../hooks/useAuth';
 import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShippingFast, faFileInvoiceDollar, faCog, faHeadset } from '@fortawesome/free-solid-svg-icons';
-import swal from 'sweetalert';
+import { faShippingFast, faFileInvoiceDollar, faCog, faHeadset, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Purchase = () => {
     const { productId } = useParams();
@@ -18,16 +17,17 @@ const Purchase = () => {
     const deliveryIcon = <FontAwesomeIcon icon={faFileInvoiceDollar} />
     const GuaranteeIcon = <FontAwesomeIcon icon={faCog} />
     const supportIcon = <FontAwesomeIcon icon={faHeadset} />
+    const submitIcon = <FontAwesomeIcon icon={faCheckCircle} />
 
 
     useEffect(() => {
-        fetch(`http://localhost:4000/products/${productId}`)
+        fetch(`https://pure-wildwood-79743.herokuapp.com/products/${productId}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
 
     const onSubmit = data => {
-        fetch('http://localhost:4000/orders', {
+        fetch('https://pure-wildwood-79743.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -37,11 +37,7 @@ const Purchase = () => {
             .then(res => res.json())
             .then(result => {
                 if (result.insertedId) {
-                    swal.fire(
-                        'Good job!',
-                        'You clicked the button!',
-                        'success'
-                    )
+                    alert("You order has been Successfully")
                     reset();
                 }
             })
@@ -118,9 +114,9 @@ const Purchase = () => {
                                         <input type="text" className="form-control" id="exampleFormControlInput1" defaultValue="" {...register("address", { required: true })} />
                                     </div>
 
-                                    <span className="w-50 mx-auto" style={{ display: "block" }}>
-                                        <input type="submit" className="btn theme-btn text-light w-100 text-center" />
-                                    </span>
+                                    <div className="w-50 mx-auto">
+                                        <button type="submit" className="btn theme-btn px-5 text-light my-3 text-center mx-auto">{submitIcon} <span className="ms-2">Submit</span></button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

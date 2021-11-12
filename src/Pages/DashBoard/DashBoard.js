@@ -10,8 +10,8 @@ import logo from '../../images/logo.png';
 import useAuth from '../../hooks/useAuth';
 import Home from '../Home/Home/Home';
 import ManageProducts from './Admin/MangeProducts/ManageProducts';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faMoneyCheckAlt, faCheckCircle, faSignOutAlt, faUserShield, faPlus, faTasks, faCompress } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faMoneyCheckAlt, faCheckCircle, faSignOutAlt, faUserShield, faPlus, faTasks, faCompress } from '@fortawesome/free-solid-svg-icons';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
@@ -85,7 +85,8 @@ const Dashboard = () => {
                             </ul>
                         </div>
                         <div className="col-lg-10">
-                            {!admin && <h4 className="ms-2 text-start border-bottom text-color">User Dashboard</h4>}
+                            {!admin && <div className="bg-color">
+                                <h4 className="ms-2 text-start border-bottom text-color">User Dashboard</h4></div>}
                             {admin && <h4 className="ms-2 text-start border-bottom text-color">Admin Dashboard</h4>}
                             <Switch>
                                 <Route exact path={`${path}/pay`}>

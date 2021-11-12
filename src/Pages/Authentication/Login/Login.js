@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-// import swal from 'sweetalert';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
-    const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth();
+    const { loginUser, signInWithGoogle, isLoading, authError } = useAuth();
 
     const location = useLocation();
     const history = useHistory();
+
+    const submitIcon = <FontAwesomeIcon icon={faCheckCircle} />
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -69,7 +73,7 @@ const Login = () => {
                             required />
                         <label htmlFor="floatingPassword">Password</label>
                     </div>
-                    <button type="submit" className="btn theme-btn px-5 text-light my-3">Submit</button>
+                    <button type="submit" className="btn theme-btn px-5 text-light my-3">{submitIcon} <span className="ms-2">Submit</span></button>
                 </form>
                 <p className="pb-4">Have an account? <Link to="/register" className="text-decoration-none theme-color fw-bold">Register</Link></p>
             </div>
@@ -78,14 +82,6 @@ const Login = () => {
                 <span className="visually-hidden">Loading...</span>
             </div>
             }
-
-            {/* {user?.email && swal.fire(
-                'Good job!',
-                'You clicked the button!',
-                'success'
-            )
-            } */}
-
             {authError && <div className="alert alert-danger" role="alert">
                 {authError}
             </div>}

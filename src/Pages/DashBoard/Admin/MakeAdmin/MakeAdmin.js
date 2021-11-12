@@ -11,7 +11,7 @@ const MakeAdmin = () => {
     const handleAdminSubmit = e => {
         const user = { email };
 
-        fetch('http://localhost:4000/users/admin', {
+        fetch('https://pure-wildwood-79743.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
