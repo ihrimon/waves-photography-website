@@ -1,6 +1,6 @@
 # Creating a WAVES PHOTOGRAPHY website
 
-This is live site link of (Firebase):  [WAVES PHOTOGRAPHY Website](https://wonder-travel-a6b6a.web.app/).
+This is live site link of (Firebase):  [WAVES PHOTOGRAPHY Website](https://waves-photography.web.app/).
 
 ## Important Features of website
 <ul>
