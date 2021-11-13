@@ -11,11 +11,12 @@ import img8 from '../../../images/brand-8.png';
 const Brands = () => {
     return (
         <div >
-            <div className="container bg-color border-radius p-5">
-                <h2>Top Brands</h2>
+            <div className="container border-radius p-5 my-5">
+                <h2 className="text-color fw-bold mb-1">Top Brands</h2>
+                <hr />
                 <div className="row row-cols-2 row-cols-lg-5 g-5 g-lg-5">
                     <div className="col">
-                        <div className="p-3 border ">
+                        <div className="p-3 border bg-light ">
                             <img src={img1} className="w-75" alt="" />
                         </div>
                     </div>

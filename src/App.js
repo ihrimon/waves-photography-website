@@ -10,7 +10,7 @@ import Purchase from './Pages/Home/Purchase/Purchase';
 import PrivateRoute from './Pages/Authentication/PrivateRoute/PrivateRoute';
 import DashBoard from './Pages/DashBoard/DashBoard';
 import MakeAdmin from './Pages/DashBoard/Admin/MakeAdmin/MakeAdmin';
-import Contact from './Pages/Contact/Contact';
+import About from './Pages/About/About';
 
 
 function App() {
@@ -28,8 +28,8 @@ function App() {
             <Route path="/allProducts">
               <AllProducts></AllProducts>
             </Route>
-            <Route path="/contact">
-              <Contact></Contact>
+            <Route path="/about">
+              <About></About>
             </Route>
             <PrivateRoute path="/purchase/:productId">
               <Purchase></Purchase>

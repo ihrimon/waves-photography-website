@@ -30,7 +30,7 @@ const Products = () => {
                 <hr/>
                 <div className="row row-cols-1 row-cols-md3 g-4">
                     {
-                        products.map(product => <Product
+                        products.slice(2, 8).map(product => <Product
                             key={product._id}
                             product={product}
                         ></Product>)

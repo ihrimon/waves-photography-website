@@ -47,17 +47,6 @@ const Login = () => {
                     <p><small>or use your email account</small></p>
                     <div className="form-floating mb-3">
                         <input
-                            type="text"
-                            name="name"
-                            onBlur={handleOnChange}
-                            className="form-control border-bottom border-0 bg-transparent"
-                            id="floatingInput"
-                            placeholder="Your name here"
-                            required />
-                        <label htmlFor="floatingInput">Name</label>
-                    </div>
-                    <div className="form-floating mb-3">
-                        <input
                             type="email"
                             name="email"
                             onBlur={handleOnChange}
@@ -76,7 +65,7 @@ const Login = () => {
                             required />
                         <label htmlFor="floatingPassword">Password</label>
                     </div>
-                    <button type="submit" className="btn theme-btn px-5 text-light my-3">{submitIcon} <span className="ms-2">Submit</span></button>
+                    <button type="submit" className="btn theme-btn px-5 text-light my-3">{submitIcon} <span className="ms-2">Login</span></button>
                 </form>
                 <p className="pb-4">Have an account? <Link to="/register" className="text-decoration-none theme-color fw-bold">Register</Link></p>
             </div>
@@ -85,7 +74,7 @@ const Login = () => {
                 <span className="visually-hidden">Loading...</span>
             </div>
             }
-            {authError && <div className="alert alert-danger" role="alert">
+            {authError && <div className="alert alert-danger w-50 mx-auto" role="alert">
                 {authError}
             </div>}
             <Footer></Footer>

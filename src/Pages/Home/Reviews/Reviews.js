@@ -1,12 +1,12 @@
 
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const Reviews = () => {
 
     const [reviews, setReviews] = useState([])
-    const cartIcon = <FontAwesomeIcon icon={faCartArrowDown} />
+    const ratingIcon = <FontAwesomeIcon icon={faStar} />
 
     useEffect(() => {
         fetch('https://pure-wildwood-79743.herokuapp.com/reviews')
@@ -16,19 +16,18 @@ const Reviews = () => {
 
     return (
         <div className="container my-5">
-            <h2 className="mb-3">Reviews</h2>
+            <h2 className="mb-3 text-color fw-bold">Customer Reviews</h2>
             <div className="row row-cols-1 row-cols-md-3 g-4">
                 {
                     reviews.map(review =>
                         <div className="col-lg-3 col-12" key={review._id}>
                             <div className="card d-flex flex-column align-items-start bg-light border border-0  product-card m-2">
                                 <div className="card h-100 product">
-                                    <img src={review.img} className="card-img-top p-4 img-rounded" alt="" />
+                                    <img src={review.img} className="w-50 mx-auto shadow-lg card-img-top p-2 my-3 rounded-pill" alt="" />
                                     <div className="card-body p-4 pt-0">
-                                        <h6 className="card-title fw-bold text-color">{review.name}</h6>
+                                        <h6 className="card-title fw-bold text-color mt-2">{review.name}</h6>
                                         <small className="card-text">{review.description}</small>
-                                        <p className="fw-bold theme-color mt-3">{review.rating} TK</p>
-                                        <p>{cartIcon}</p>
+                                        <p className="fw-bold text-warning mt-3">{review.rating} {ratingIcon}</p>
                                     </div>
                                 </div>
                             </div>

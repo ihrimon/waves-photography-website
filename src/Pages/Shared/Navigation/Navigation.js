@@ -33,7 +33,7 @@ const Navigation = () => {
                             <NavLink className="nav-link" activeStyle={activeStyle} to="/allProducts">All Products</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" activeStyle={activeStyle} to="/contact">Contact Us</NavLink>
+                            <NavLink className="nav-link" activeStyle={activeStyle} to="/about">About Us</NavLink>
                         </li>
                         {
                             ((user.displayName) && (user.photoURL) || (user.email)) &&
