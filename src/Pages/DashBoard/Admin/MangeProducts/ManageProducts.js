@@ -10,7 +10,7 @@ const ManageProducts = () => {
             .then(res => res.json())
             .then(data => setProducts(data))
             .catch((e) => { })
-    }, [])
+    }, [products])
 
     const { isLoading } = useAuth();
     if (isLoading) {
@@ -26,12 +26,14 @@ const ManageProducts = () => {
     // Remove product form manage products
     const handleRemoveProduct = id => {
         const confirmation = window.confirm("Are you sure you want to delte this item!")
-        axios.delete(`https://pure-wildwood-79743.herokuapp.com/products/${id}`)
-            .then(res => {
-                if (res.data.deletedCount > 0) {
-                    alert("Order Cancel Successfully!!")
-                }
-            });
+        if (confirmation) {
+            axios.delete(`https://pure-wildwood-79743.herokuapp.com/products/${id}`)
+                .then(res => {
+                    if (res.data.deletedCount > 0) {
+                        alert("Order Cancel Successfully!!")
+                    }
+                });
+        }
     }
 
     return (
