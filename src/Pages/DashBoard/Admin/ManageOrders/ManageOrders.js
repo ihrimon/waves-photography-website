@@ -1,40 +1,60 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import swal from 'sweetalert';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 const ManageOrders = () => {
     const [orders, setOrders] = useState([]);
+    const [updater, setUpdater] = useState();
+
+    const dropdownIcon = <FontAwesomeIcon icon={faAngleDown} />
 
     useEffect(() => {
         fetch('https://pure-wildwood-79743.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setOrders(data))
-    }, [])
+    }, []);
 
     // Order Approval Status
+    // const handleUpdateStatus = (id, status) => {
+    //     console.log(id, status);
+    //     const data = { id: id, status: status }
+    //     axios.post('https://pure-wildwood-79743.herokuapp.com/orders', data)
+    //     .then(res => {
+    //         if(res.data.modifiedCount > 0){
+    //             setUpdater(res)
+    //         }
+    //     })
+    // }
+
     // const handleApproved = (id) => {
+    //     const approvedStatus = { email };
     //     fetch(`https://evening-brushlands-52503.herokuapp.com/orders/${id}`, {
     //         method: 'UPDATE',
     //         headers: {
     //             'content-type': 'application/json'
-    //         }
+    //         },
+    //         body: JSON.stringify(user)
     //     })
     //         .then(res => res.json())
     //         .then(data => {
     //             if (data.modifiedCount > 0) {
-    //                 swal("Approved!", "Approved Successfully!", "success");
+    //                 alert("Approved!", "Approved Successfully!", "success");
     //             }
     //         })
-    // }
+    // };
 
     // Cancel Order
     const handleCancelOrder = id => {
-        axios.delete(`https://pure-wildwood-79743.herokuapp.com/orders/${id}`)
-            .then(res => {
-                if (res.data.deletedCount > 0) {
-                    alert("Order Cancel Successfully!!")
-                }
-            });
+        const confirmation = window.confirm("Are you sure you want to delete thik item.")
+        if (confirmation) {
+            axios.delete(`https://pure-wildwood-79743.herokuapp.com/orders/${id}`)
+                .then(res => {
+                    if (res.data.deletedCount > 0) {
+                        alert("Order Cancel Successfully!!")
+                    }
+                });
+        }
     }
 
     return (
@@ -51,7 +71,6 @@ const ManageOrders = () => {
                             <th className="text-start text-color">Product Name</th>
                             <th className="text-start text-color">Price</th>
                             <th className="text-start text-color">Status</th>
-                            <th className="text-start text-color"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,21 +81,43 @@ const ManageOrders = () => {
                                     <td className="text-start">{order.name}</td>
                                     <td className="text-start">{order.email}</td>
                                     <td className="text-start">{order.address}</td>
-                                    <td className="text-start">{order.productTitle}</td>
+                                    <td className="text-start">{order.productTitle.slice(0, 20)}</td>
                                     <td className="text-start">${order.price}</td>
+                                    <td className="text-start">{order.approvedStatus}</td>
+                                    <td className="text-start">{order.shippingStatus}</td>
+                                    <td className="text-start">{order.cancelStatus}</td>
+                                    {
+                                        order.status === 'Pending' ? <td className="text-danger fw-bold">{order.status}</td> : <td className="text-success fw-bold">{order.status}</td>
+                                    }
+                                    {
+                                        order.status === 'Order Process' ? <td className="text-danger fw-bold">{order.status}</td> : <td className="text-success fw-bold">{order.status}</td>
+                                    }
                                     {
                                         order.status === 'Pending' ? <td className="text-danger fw-bold">{order.status}</td> : <td className="text-success fw-bold">{order.status}</td>
                                     }
                                     {/* <td><button onClick={() => handleApproved(order._id)} className="btn btn-sm btn-success">Approved</button></td> */}
-                                    <td><button className="btn btn-sm btn-success">Approved</button></td>
-                                    <td><button onClick={() => handleCancelOrder(order._id)} className="btn btn-sm btn-danger">Cancel</button></td>
+
+                                    <td>
+                                        <ul style={{ listStyleType: "none" }}>
+                                            <li class="nav-item dropdown px-3 text-color">
+                                                <a class="nav-link text-color" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    {dropdownIcon} <span className="ms-1">Actions</span>
+                                                </a>
+                                                <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
+                                                    <li><button onClick={() => handleCancelOrder(order._id)} className="btn btn-outline-success w-75 my-1 text-color">Approved</button></li>
+                                                    <li><button onClick={() => handleCancelOrder(order._id)} className="btn btn-outline-success w-75 my-1 text-color">Shipped</button></li>
+                                                    <li><button onClick={() => handleCancelOrder(order._id)} className="btn btn-outline-danger w-75 my-1 text-color">Cancel</button></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </td>
                                 </tr>
                             )
                         }
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div >
     );
 };
 

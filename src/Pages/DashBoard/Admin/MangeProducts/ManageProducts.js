@@ -17,13 +17,17 @@ const ManageProducts = () => {
     }
 
     // get product api
-    useEffect(() => {
-        axios.get('https://pure-wildwood-79743.herokuapp.com/products')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    })
+    // useEffect(() => {
+    //     axios.get('https://pure-wildwood-79743.herokuapp.com/products')
+    //         .then(res => res.json())
+    //         .then(data => setProducts(data))
+    // })
 
-
+    // useEffect(() => {
+    //     fetch('https://pure-wildwood-79743.herokuapp.com/products')
+    //         .then(res => res.json())
+    //         .then(data => setProducts(data))
+    // }, []);
 
     // Remove product form manage products
     const handleRemoveProduct = id => {
@@ -55,7 +59,7 @@ const ManageProducts = () => {
                             products.map((product, index) =>
                                 <tr key={product._id}>
                                     <th className="text-start" scope="row">{index + 1}</th>
-                                    <td className="text-start">{product.name}</td>
+                                    <td className="text-start">{product.slice(0, 20)}</td>
                                     <td className="text-start">${product.price}</td>
                                     {
                                         product.status === 'Pending' ? <td className="text-danger fw-bold">{product.status}</td> : <td className="text-success fw-bold">{product.status}</td>

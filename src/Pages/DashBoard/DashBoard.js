@@ -30,6 +30,7 @@ const Dashboard = () => {
     const activeStyle = {
         backgroundColor: "#17c6aa",
         color: "white",
+        fontWeight: 'bold',
         width: "75%",
         borderRadius: "6px"
     };
@@ -43,7 +44,7 @@ const Dashboard = () => {
                             <Link to="/"><img src={logo} alt="" className="w-50" /></Link>
                             <ul className="list-group list-group-flush">
                                 <li className="list-group-item text-start border border-0">
-                                    <NavLink className="nav-link  text-color" aria-current="page" activeStyle={{ fontWeight: 'bold' }} to="/home">{homeIcon} <span className="ms-2">Home</span></NavLink>
+                                    <NavLink className="nav-link  text-color" aria-current="page" activeStyle={activeStyle} to="/home">{homeIcon} <span className="ms-2">Home</span></NavLink>
                                 </li>
 
                                 {!admin &&
@@ -85,9 +86,11 @@ const Dashboard = () => {
                             </ul>
                         </div>
                         <div className="col-lg-10">
-                            {!admin && <div className="bg-color">
-                                <h4 className="ms-2 text-start border-bottom text-color">User Dashboard</h4></div>}
-                            {admin && <h4 className="ms-2 text-start border-bottom text-color">Admin Dashboard</h4>}
+                            {!admin && <div className="bg-color py-3">
+                                <h4 className="ms-2 text-start ms-4 mx-auto text-color">User Dashboard</h4></div>}
+                            {admin && <div className="bg-color py-3">
+                                <h4 className="ms-2 text-start ms-4 text-color">Admin Dashboard</h4>
+                            </div>}
                             <Switch>
                                 <Route exact path={`${path}/pay`}>
                                     <Pay></Pay>

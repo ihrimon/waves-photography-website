@@ -3,6 +3,8 @@ import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import Navigation from '../../Shared/Navigation/Navigation';
+import Footer from '../../Shared/Footer/Footer';
 
 
 const Login = () => {
@@ -34,6 +36,7 @@ const Login = () => {
 
     return (
         <div>
+            <Navigation></Navigation>
             {!isLoading && <div className="w-25 bg-color mx-auto my-5 border-radius custom-shadow">
                 <h4 className="theme-color pt-4">Please Login</h4>
                 <p><small>use social account</small></p>
@@ -85,6 +88,7 @@ const Login = () => {
             {authError && <div className="alert alert-danger" role="alert">
                 {authError}
             </div>}
+            <Footer></Footer>
         </div>
     );
 };
