@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import Rating from 'react-rating';
 
 const Reviews = () => {
-
     const [reviews, setReviews] = useState([])
     const ratingIcon = <FontAwesomeIcon icon={faStar} />
 
@@ -27,7 +27,9 @@ const Reviews = () => {
                                     <div className="card-body p-4 pt-0">
                                         <h6 className="card-title fw-bold text-color mt-2">{review.name}</h6>
                                         <small className="card-text">{review.description}</small>
-                                        <p className="fw-bold text-warning mt-3">{review.rating} {ratingIcon}</p>
+                                        <div className="text-start">
+                                            <Rating initialRating={review.rating} className="text-warning" emptySymbol="far fa-star fa-2x" fullSymbol="fas fa-star fa-2x" readonly></Rating>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -39,5 +41,3 @@ const Reviews = () => {
 };
 
 export default Reviews;
-
-https://github.com/programming-hero-web-course-4/niche-website-client-side-ihrimon

@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import useAuth from '../../../../hooks/useAuth';
 
 const AddReview = () => {
     const { register, handleSubmit, reset } = useForm();
+    const { user } = useAuth();
 
     const onSubmit = data => {
         axios.post('https://pure-wildwood-79743.herokuapp.com/reviews', data)
@@ -22,7 +24,7 @@ const AddReview = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className="px-4 pb-5">
                     <div className="mb-3">
                         <label for="exampleFormControlInput1" className="form-label">User Name</label>
-                        <input type="text" className="form-control" id="exampleFormControlInput1" {...register("name")} placeholder="reviewer name" required />
+                        <input type="text" className="form-control" id="exampleFormControlInput1" {...register("name")} defaultValue={user.displayName} placeholder="reviewer name" required />
                     </div>
                     <div className="mb-3">
                         <label for="exampleFormControlTextarea1" className="form-label">Description</label>
@@ -30,7 +32,7 @@ const AddReview = () => {
                     </div>
                     <div className="mb-3">
                         <label for="exampleFormControlInput1" className="form-label">Rating (out of 5)</label>
-                        <input type="number" className="form-control" id="exampleFormControlInput1" {...register("rating")} placeholder="rating" required />
+                        <input type="text" className="form-control" id="exampleFormControlInput1" {...register("rating")} placeholder="rating" required />
                     </div>
                     <div className="mb-3">
                         <label for="exampleFormControlInput1" className="form-label">Img URL</label>
