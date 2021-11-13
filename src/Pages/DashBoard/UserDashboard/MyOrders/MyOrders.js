@@ -54,7 +54,7 @@ const MyOrders = () => {
                             <th className="text-start">Name</th>
                             <th className="text-start">Email</th>
                             <th className="text-start">Address</th>
-                            <th className="text-start">Service</th>
+                            <th className="text-start">Product Name</th>
                             <th className="text-start">Amount</th>
                             <th className="text-start">Status</th>
                         </tr>
@@ -67,7 +67,7 @@ const MyOrders = () => {
                                     <td className="text-start">{myOrder.name}</td>
                                     <td className="text-start">{myOrder.email}</td>
                                     <td className="text-start">{myOrder.address}</td>
-                                    <td className="text-start">{myOrder.title}</td>
+                                    <td className="text-start">{myOrder.productTitle}</td>
                                     <td className="text-start">$ {myOrder.price}</td>
                                     {
                                         myOrder.status === 'Pending' ? <td className="text-danger fw-bold">{myOrder.status}</td> : <td className="text-success fw-bold">{myOrder.status}</td>

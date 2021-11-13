@@ -17,11 +17,12 @@ const ManageProducts = () => {
     }
 
     // get product api
-    // useEffect(() => {
-    //     fetch('https://pure-wildwood-79743.herokuapp.com/products')
-    //         .then(res => res.json())
-    //         .then(data => setProducts(data))
-    // }, [])
+    useEffect(() => {
+        axios.get('https://pure-wildwood-79743.herokuapp.com/products')
+            .then(res => res.json())
+            .then(data => setProducts(data))
+    })
+
 
 
     // Remove product form manage products
@@ -36,7 +37,7 @@ const ManageProducts = () => {
 
     return (
         <div className="container">
-            <h2 className="mt-5 mb-3">ManageProducts</h2>
+            <h2 className="mt-5 mb-3">Manage Products</h2>
             <div className="table-responsive">
                 <table className="table border table-hover">
                     <thead>

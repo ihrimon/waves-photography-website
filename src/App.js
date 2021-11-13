@@ -37,9 +37,9 @@ function App() {
             <Route path="/makeAdmin">
               <MakeAdmin></MakeAdmin>
             </Route>
-            <PrivateRoute path="/dashboard">
+            <Route path="/dashboard">
               <DashBoard></DashBoard>
-            </PrivateRoute>
+            </Route>
             <Route path="/login">
               <Login></Login>
             </Route>
