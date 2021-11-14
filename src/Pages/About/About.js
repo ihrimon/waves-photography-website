@@ -20,7 +20,7 @@ const About = () => {
                 <div className="img-banner border-radius">
                     <div className="d-flex flex-lg-row flex-column align-items-center">
                         <div className="col-12 pt-5 pt-lg-0 text-light text-left color-theme">
-                            <h className="text-size mt-3 w-75 mx-auto" >About</h>
+                            <h className="text-size text-light mt-3 w-75 mx-auto" >About</h>
                         </div>
                     </div>
                 </div>

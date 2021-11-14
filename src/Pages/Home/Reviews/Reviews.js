@@ -1,12 +1,9 @@
 
 import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Rating from 'react-rating';
 
 const Reviews = () => {
-    const [reviews, setReviews] = useState([])
-    const ratingIcon = <FontAwesomeIcon icon={faStar} />
+    const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
         fetch('https://pure-wildwood-79743.herokuapp.com/reviews')
@@ -15,8 +12,8 @@ const Reviews = () => {
     }, [])
 
     return (
-        <div className="container my-5">
-            <h2 className="mb-3 text-color fw-bold">Customer Reviews</h2>
+        <div className="container px-5 my-5">
+            <h2 className="mb-4 text-color fw-bold">Customer Reviews</h2>
             <div className="row row-cols-1 row-cols-md-3 g-4">
                 {
                     reviews.map(review =>
@@ -26,9 +23,9 @@ const Reviews = () => {
                                     <img src={review.img} className="w-50 mx-auto shadow-lg card-img-top p-2 my-3 rounded-pill" alt="" />
                                     <div className="card-body p-4 pt-0">
                                         <h6 className="card-title fw-bold text-color mt-2">{review.name}</h6>
-                                        <small className="card-text">{review.description}</small>
-                                        <div className="text-start">
-                                            <Rating initialRating={review.rating} className="text-warning" emptySymbol="far fa-star fa-2x" fullSymbol="fas fa-star fa-2x" readonly></Rating>
+                                        <small className="card-text">{review.comment}</small>
+                                        <div className="mt-2">
+                                            <small><Rating initialRating={review.rating} className="text-warning" emptySymbol="far fa-star fa-2x" fullSymbol="fas fa-star fa-2x" readonly></Rating></small>
                                         </div>
                                     </div>
                                 </div>

@@ -9,7 +9,9 @@ import Footer from '../../Shared/Footer/Footer';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
-    const { loginUser, signInWithGoogle, isLoading, authError } = useAuth();
+    const { loginUser, signInWithGoogle, isLoading, authError, user } = useAuth();
+
+    console.log(user)
 
     const location = useLocation();
     const history = useHistory();

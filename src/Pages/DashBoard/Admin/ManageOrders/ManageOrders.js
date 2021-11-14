@@ -36,17 +36,6 @@ const ManageOrders = () => {
                     }
                 });
         }
-
-        if (confirmation) {
-            axios.get(`https://pure-wildwood-79743.herokuapp.com/orders/${id}`)
-                .then(res => {
-                    console.log(res);
-                    if (res.data.deletedCount > 0) {
-                        const restData = orders.filter(sOrder => sOrder._id !== id);
-                        setOrders(restData);
-                    }
-                })
-        }
     }
 
     return (

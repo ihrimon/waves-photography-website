@@ -1,47 +1,42 @@
 import React from 'react';
+import img1 from '../../../../images/pay-1.png';
+import img2 from '../../../../images/pay-2.png';
+import img3 from '../../../../images/pay-3.png';
+import img4 from '../../../../images/pay-4.png';
 
 const Pay = () => {
     return (
-        <div>
-            <form className="w-75 mx-auto mt-3">
-                <p><small>Payment Method</small></p>
-                <div className="form-floating mb-3">
-                    <input
-                        type="text"
-                        className="form-control border-bottom border-0 bg-transparent"
-                        id="floatingInput"
-                        placeholder="Your name here"
-                        required />
-                    <label htmlFor="floatingInput">Name</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <input
-                        type="email"
-                        className="form-control border-bottom border-0 bg-transparent" id="floatingInput" placeholder="name@example.com"
-                        required />
-                    <label htmlFor="floatingInput">Email</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <input
-                        type="password"
-                        className="form-control border-bottom border-0 bg-transparent"
-                        id="floatingPassword"
-                        placeholder="Password"
-                        required />
-                    <label htmlFor="floatingPassword">Password</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <input
-                        type="password"
-                        className="form-control border-bottom border-0 bg-transparent"
-                        id="floatingPassword"
-                        placeholder="Password"
-                        required />
-                    <label htmlFor="floatingPassword">Confirm Password</label>
-                </div>
+        <div >
+            <div className="container border-radius p-5 my-5">
+                <h2 className="text-color fw-bold mb-1">Payment Method</h2>
+                <hr />
 
-                <button type="submit" className="btn theme-btn px-5 text-light my-3">Submit</button>
-            </form>
+                <h5 className="theme-color">Payment system coming soon.</h5>
+                <div className="border-radius w-75 text-center mx-auto my-5">
+                    <div className="row row-cols-2 row-cols-lg-5 g-5 g-lg-5 text-center align-items-center justify-content-center">
+                        <div className="col">
+                            <div className="p-3">
+                                <img src={img1} className="w-75" alt="" />
+                            </div>
+                        </div>
+                        <div className="col">
+                            <div className="p-3">
+                                <img src={img2} className="w-75" alt="" />
+                            </div>
+                        </div>
+                        <div className="col">
+                            <div className="p-3">
+                                <img src={img3} className="w-75" alt="" />
+                            </div>
+                        </div>
+                        <div className="col">
+                            <div className="p-3">
+                                <img src={img4} className="w-75" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

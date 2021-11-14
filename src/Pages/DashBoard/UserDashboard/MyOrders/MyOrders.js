@@ -15,32 +15,17 @@ const MyOrders = () => {
             .then(res => setMyOrders(res.data));
     }, [])
 
-
-
     // CANCEL ORDER
     const handleCancelOrder = id => {
-        swal({
-            title: "Are you sure?",
-            text: "Cancel for this order.",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-            .then((willDelete) => {
-                if (willDelete) {
-                    fetch(`https://pure-wildwood-79743.herokuapp.com/orders/${id}`, {
-                        method: 'DELETE'
-                    })
-                        .then(res => res.json())
-                        .then(data => {
-                            if (data.deletedCount > 0) {
-                                swal("Deleted!", "Deleted Successfully!", "success");
-                            }
-                        })
-                } else {
-                    swal("Delete Canceled!");
-                }
-            });
+        const confirmation = window.confirm("Are you sure you want to cancel this item.")
+        if (confirmation) {
+            axios.delete(`https://pure-wildwood-79743.herokuapp.com/orders/${id}`)
+                .then(res => {
+                    if (res.data.deletedCount > 0) {
+                        alert("Order Cancel Successfully!!")
+                    }
+                });
+        }
     }
 
     return (
@@ -69,9 +54,12 @@ const MyOrders = () => {
                                     <td className="text-start">{myOrder.address}</td>
                                     <td className="text-start">{myOrder.productTitle}</td>
                                     <td className="text-start">$ {myOrder.price}</td>
-                                    {
-                                        myOrder.status === 'Pending' ? <td className="text-danger fw-bold">{myOrder.status}</td> : <td className="text-success fw-bold">{myOrder.status}</td>
-                                    }
+                                    <td>
+                                        {
+                                            myOrder.status === 'pending' ? <td className="text-danger fw-bold">{myOrder.status}</td> : <td className="text-success fw-bold">{myOrder.status}</td>
+                                        }
+                                    </td>
+
                                     <td><button onClick={() => handleCancelOrder(myOrder._id)} className="btn btn-sm btn-danger">Cancel</button></td>
                                 </tr>
                             )

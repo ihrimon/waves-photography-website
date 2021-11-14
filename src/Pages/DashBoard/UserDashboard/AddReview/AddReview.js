@@ -28,19 +28,24 @@ const AddReview = () => {
                     </div>
                     <div className="mb-3">
                         <label for="exampleFormControlTextarea1" className="form-label">Description</label>
-                        <textarea className="form-control" id="exampleFormControlTextarea1" {...register("description")} placeholder="some text here" rows="3" required></textarea>
+                        <textarea className="form-control" id="exampleFormControlTextarea1" {...register("comment")} placeholder="some text here" rows="3" required></textarea>
                     </div>
                     <div className="mb-3">
-                        <label for="exampleFormControlInput1" className="form-label">Rating (out of 5)</label>
+                        <label for="exampleFormControlInput1" className="form-label">Rating</label>
                         <input type="text" className="form-control" id="exampleFormControlInput1" {...register("rating")} placeholder="rating" required />
                     </div>
                     <div className="mb-3">
                         <label for="exampleFormControlInput1" className="form-label">Img URL</label>
-                        <input className="form-control" id="exampleFormControlInput1" {...register("img")} placeholder="image url" required />
+                        {user.photoURL ?
+                            <input className="form-control" id="exampleFormControlInput1" {...register("img")} defaultValue={user.photoURL} placeholder="image url" required />
+                            :
+                            <input className="form-control" id="exampleFormControlInput1" {...register("img")} defaultValue="https://i.ibb.co/YNvNxpX/149071.png" placeholder="image url" required />
+                        }
+
                     </div>
 
                     <span className="w-50 mx-auto" style={{ display: "block" }}>
-                        <input type="submit" className="btn theme-btn w-100 text-center " />
+                        <input type="submit" className="btn theme-btn w-100 text-center text-light " />
                     </span>
                 </form>
             </div>

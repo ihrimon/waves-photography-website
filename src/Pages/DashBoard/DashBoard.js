@@ -9,15 +9,19 @@ import MakeAdmin from './Admin/MakeAdmin/MakeAdmin';
 import logo from '../../images/logo.png';
 import useAuth from '../../hooks/useAuth';
 import Home from '../Home/Home/Home';
+import img1 from '../../images/dashboard-1.png'
 import ManageProducts from './Admin/MangeProducts/ManageProducts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faMoneyCheckAlt, faCheckCircle, faSignOutAlt, faUserShield, faPlus, faTasks, faCompress } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faChartLine, faMoneyCheckAlt, faCheckCircle, faSignOutAlt, faUserShield, faPlus, faTasks, faCompress } from '@fortawesome/free-solid-svg-icons';
+import AdminDashboard from './Admin/Dashboard/AdminDashboard';
+import UserDashboard from './UserDashboard/Dashboarduser/UserDashboard';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
     const { admin, logOut } = useAuth();
 
     const homeIcon = <FontAwesomeIcon icon={faHome} />
+    const dashboardIcon = <FontAwesomeIcon icon={faChartLine} />
     const payIcon = <FontAwesomeIcon icon={faMoneyCheckAlt} />
     const reviewIcon = <FontAwesomeIcon icon={faCheckCircle} />
     const orderIcon = <FontAwesomeIcon icon={faTasks} />
@@ -41,14 +45,19 @@ const Dashboard = () => {
                 <div className="container-fluid">
                     <div className="row mt-3">
                         <div className="col-lg-2 border-end">
-                            <Link to="/"><img src={logo} alt="" className="w-50" /></Link>
-                            <ul className="list-group list-group-flush">
+                            <div className="border-bottom">
+                                <Link to="/"><img src={logo} alt="" className="w-50" /></Link>
+                            </div>
+                            <ul className="list-group list-group-flush mt-3">
                                 <li className="list-group-item text-start border border-0">
                                     <NavLink className="nav-link  text-color" aria-current="page" activeStyle={activeStyle} to="/home">{homeIcon} <span className="ms-2">Home</span></NavLink>
                                 </li>
 
                                 {!admin &&
                                     <ul className="list-group list-group-flush">
+                                        <li className="list-group-item text-start border border-0">
+                                            <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/userDashboard`}>{dashboardIcon} <span className="ms-2">Dashboard</span></NavLink>
+                                        </li>
                                         <li className="list-group-item text-start border border-0">
                                             <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/pay`}>{payIcon} <span className="ms-2">Pay</span></NavLink>
                                         </li>
@@ -64,6 +73,9 @@ const Dashboard = () => {
 
                                 {admin &&
                                     <ul className="list-group list-group-flush">
+                                        <li className="list-group-item text-start border border-0">
+                                            <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/adminDashboard`}>{dashboardIcon} <span className="ms-2">Dashboard</span></NavLink>
+                                        </li>
                                         <li className="list-group-item text-start border border-0">
                                             <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/manageOrders`}>{orderIcon} <span className="ms-2">Manage Orders</span></NavLink>
                                         </li>
@@ -87,12 +99,19 @@ const Dashboard = () => {
                         </div>
                         <div className="col-lg-10">
                             {!admin && <div className="bg-color py-3">
-                                <h4 className="ms-2 text-start ms-4 mx-auto text-color">User Dashboard</h4></div>}
+                                <h4 className="ms-2 text-start ms-4 mx-auto theme-color">User Dashboard</h4></div>}
                             {admin && <div className="bg-color py-3">
-                                <h4 className="ms-2 text-start ms-4 text-color">Admin Dashboard</h4>
+                                <h4 className="ms-2 text-start ms-4 theme-color">Admin Dashboard</h4>
                             </div>}
+
+
+                            {/* Nested Routing */}
                             <Switch>
-                                <Route exact path={`${path}/pay`}>
+                                {/* User Dashboard */}
+                                <Route exact path={`${path}/userDashboard`}>
+                                    <UserDashboard></UserDashboard>
+                                </Route>
+                                <Route path={`${path}/pay`}>
                                     <Pay></Pay>
                                 </Route>
                                 <Route path={`${path}/myOrders`}>
@@ -104,7 +123,12 @@ const Dashboard = () => {
                                 <Route path={`${path}/addReview`}>
                                     <AddReview></AddReview>
                                 </Route>
-                                <Route exact path={`${path}/manageOrders`}>
+
+                                {/* Admin Dashbaord */}
+                                <Route exact path={`${path}/adminDashboard`}>
+                                    <AdminDashboard></AdminDashboard>
+                                </Route>
+                                <Route path={`${path}/manageOrders`}>
                                     <ManageOrders></ManageOrders>
                                 </Route>
                                 <Route path={`${path}/addProducts`}>
@@ -113,7 +137,7 @@ const Dashboard = () => {
                                 <Route path={`${path}/makeAdmin`}>
                                     <MakeAdmin></MakeAdmin>
                                 </Route>
-                                <Route exact path={`${path}/manageProducts`}>
+                                <Route path={`${path}/manageProducts`}>
                                     <ManageProducts></ManageProducts>
                                 </Route>
                             </Switch>
