@@ -30,11 +30,16 @@ const ManageOrders = () => {
         const confirmation = window.confirm("Are you sure you want to delete thik item.")
         if (confirmation) {
             axios.delete(`https://pure-wildwood-79743.herokuapp.com/orders/${id}`)
-                .then(res => {
-                    if (res.data.deletedCount > 0) {
-                        alert("Order Cancel Successfully!!")
-                    }
-                });
+            .then(res => {
+                if (res.data.deletedCount > 0) {
+                    const restData = orders.filter(order => order._id !== id)
+                    setOrders(restData);
+
+                }
+                else {
+                    alert("Order Cancel Successfully!!")
+                }
+            });
         }
     }
 
@@ -64,7 +69,7 @@ const ManageOrders = () => {
                                     <td className="text-start">{order.address}</td>
                                     <td className="text-start">{order.productTitle}</td>
                                     <td className="text-start">${order.price}</td>
-                                    <td className="text-start">{order.status}</td>
+                                    {/* <td className="text-start">{order.status}</td> */}
                                     <td>
                                         {order.status === 'pending' ?
                                             <span className="bg-warning p-1 rounded text-white d-inline-block">{order.status}</span>

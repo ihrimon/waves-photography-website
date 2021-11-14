@@ -22,6 +22,11 @@ const MyOrders = () => {
             axios.delete(`https://pure-wildwood-79743.herokuapp.com/orders/${id}`)
                 .then(res => {
                     if (res.data.deletedCount > 0) {
+                        const restData = myOrders.filter(order => order._id !== id)
+                        setMyOrders(restData);
+
+                    }
+                    else {
                         alert("Order Cancel Successfully!!")
                     }
                 });
@@ -33,15 +38,16 @@ const MyOrders = () => {
             <h2 className="mt-5 mb-3 text-center">My Orders</h2>
             <div className="table-responsive">
                 <table className="table border table-hover">
-                    <thead>
+                    <thead className="thead-bg text-light">
                         <tr>
-                            <th className="text-start">SL.</th>
+                            <th className="text-start ">SL.</th>
                             <th className="text-start">Name</th>
                             <th className="text-start">Email</th>
                             <th className="text-start">Address</th>
                             <th className="text-start">Product Name</th>
                             <th className="text-start">Amount</th>
                             <th className="text-start">Status</th>
+                            <th className="text-start">Manage</th>
                         </tr>
                     </thead>
                     <tbody>

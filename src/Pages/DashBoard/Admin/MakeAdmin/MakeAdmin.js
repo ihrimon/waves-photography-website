@@ -30,23 +30,37 @@ const MakeAdmin = () => {
     }
 
     return (
-        <div className="container w-25">
+        <div className="container w-25 mt-5">
             <form onSubmit={handleAdminSubmit}>
                 <div className="form-floating mb-3">
-                    <input
-                        type="email"
-                        name="email"
-                        onBlur={handleOnBlur}
-                        className="form-control border-bottom border-0 bg-transparent" id="floatingInput" placeholder="name@example.com"
-                        required />
-                    <label htmlFor="floatingInput">Email</label>
+
+                    <div className="form-floating mb-3">
+                        <input
+                            type="email"
+                            name="email"
+                            onBlur={handleOnBlur}
+                            className="form-control border-bottom border-0 bg-transparent" id="floatingInput" placeholder="name@example.com"
+                            required />
+                        <label htmlFor="floatingInput">Email</label>
+                    </div>
+                    <div className="form-floating mb-3">
+                        <input
+                            type="password"
+                            name="password"
+                            onBlur={handleOnBlur}
+                            className="form-control border-bottom border-0 bg-transparent"
+                            id="floatingPassword"
+                            placeholder="Password"
+                            required />
+                        <label htmlFor="floatingPassword">Password</label>
+                    </div>
                 </div>
                 <button type="submit" className="btn theme-btn text-light px-5" >Make Admin</button>
-            </form>
+            </form >
             {success && <div className="alert alert-success" role="alert">
                 Made admin Successfully.!
             </div>}
-        </div>
+        </div >
     );
 };
 

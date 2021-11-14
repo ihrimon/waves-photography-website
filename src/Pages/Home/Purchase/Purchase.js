@@ -101,7 +101,7 @@ const Purchase = () => {
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="exampleFormControlInput1" className="form-label">Product Title</label>
-                                        <input type="text" className="form-control" id="exampleFormControlInput1" defaultValue={product.name}{...register("productTitle", { required: true })} />
+                                        <input type="text" className="form-control" id="exampleFormControlInput1" defaultValue={product.name}{...register("productTitle", { required: true })} required />
                                     </div>
 
                                     <div className="mb-3">

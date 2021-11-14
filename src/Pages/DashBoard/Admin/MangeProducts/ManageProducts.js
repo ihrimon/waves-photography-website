@@ -38,17 +38,16 @@ const ManageProducts = () => {
 
     return (
         <div className="container">
-            <h2 className="mt-5 mb-3">Manage Products</h2>
+            <h2 className="mt-5 mb-3 theme-color">Manage Products</h2>
             <div className="table-responsive">
                 <table className="table border table-hover">
-                    <thead>
+                    <thead className="thead-bg text-light">
                         <tr>
                             <th className="text-start">SL.</th>
                             <th className="text-start">Product Name</th>
                             <th className="text-start">Amount</th>
                             <th className="text-start">Status</th>
-                            <th className="text-start"></th>
-                            <th className="text-start"></th>
+                            <th className="">Manage</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,11 +57,7 @@ const ManageProducts = () => {
                                     <th className="text-start" scope="row">{index + 1}</th>
                                     <td className="text-start">{product.name}</td>
                                     <td className="text-start">${product.price}</td>
-                                    {
-                                        product.status === 'Pending' ? <td className="text-danger fw-bold">{product.status}</td> : <td className="text-success fw-bold">{product.status}</td>
-                                    }
-
-                                    <td><button className="btn btn-sm btn-success">In Stock</button></td>
+                                    <td className="text-start">In Stock</td>
                                     <td><button onClick={() => handleRemoveProduct(product._id)} className="btn btn-sm btn-danger">Delete</button></td>
                                 </tr>
                             )
