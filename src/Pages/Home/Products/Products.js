@@ -28,7 +28,7 @@ const Products = () => {
     return (
         <div>
             <div className="container p-5 my-3">
-                <h2 className="mb-4 text-center theme-color">Features Products</h2>
+                <h2 className="mb-4 text-center theme-color fw-bold">Features Products</h2>
                 <div className="row row-cols-1 row-cols-md-3 g-4">
                     {
                         products.slice(0, 6).map(product =>

@@ -79,9 +79,6 @@ const Dashboard = () => {
                                             <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/manageOrders`}>{orderIcon} <span className="ms-2">Manage Orders</span></NavLink>
                                         </li>
                                         <li className="list-group-item text-start border border-0">
-                                            <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/manageProducts`}>{productIcon} <span className="ms-2">Manage Product</span></NavLink>
-                                        </li>
-                                        <li className="list-group-item text-start border border-0">
                                             <NavLink className="nav-link active text-color" aria-current="page" activeStyle={activeStyle} to={`${url}/addProducts`}>{addIcon} <span className="ms-2">Add Products</span></NavLink>
                                         </li>
                                         <li className="list-group-item text-start border border-0">

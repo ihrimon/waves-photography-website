@@ -36,7 +36,7 @@ const Login = () => {
     return (
         <div>
             <Navigation></Navigation>
-            {!isLoading && <div className="w-25 bg-color mx-auto my-5 border-radius custom-shadow">
+            {!isLoading && <div className="form-style bg-color mx-auto my-5 border-radius custom-shadow">
                 <h4 className="theme-color pt-4">Please Login</h4>
                 <p><small>use social account</small></p>
                 <div>
