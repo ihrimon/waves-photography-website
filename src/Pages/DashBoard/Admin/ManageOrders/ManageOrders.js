@@ -30,16 +30,16 @@ const ManageOrders = () => {
         const confirmation = window.confirm("Are you sure you want to delete thik item.")
         if (confirmation) {
             axios.delete(`https://pure-wildwood-79743.herokuapp.com/orders/${id}`)
-            .then(res => {
-                if (res.data.deletedCount > 0) {
-                    const restData = orders.filter(order => order._id !== id)
-                    setOrders(restData);
+                .then(res => {
+                    if (res.data.deletedCount > 0) {
+                        const restData = orders.filter(order => order._id !== id)
+                        setOrders(restData);
 
-                }
-                else {
-                    alert("Order Cancel Successfully!!")
-                }
-            });
+                    }
+                    else {
+                        alert("Order Cancel Successfully!!")
+                    }
+                });
         }
     }
 
@@ -57,6 +57,7 @@ const ManageOrders = () => {
                             <th className="text-start text-color">Product Name</th>
                             <th className="text-start text-color">Price</th>
                             <th className="text-start text-color">Status</th>
+                            <th className=" text-color">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -85,8 +86,8 @@ const ManageOrders = () => {
                                                     {dropdownIcon} <span className="ms-1">Actions</span>
                                                 </a>
                                                 <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
-                                                    <button onClick={() => handleCancelOrder(order._id)} className="btn btn-outline-danger w-75 my-1 text-color">Cancel</button>
                                                     <button onClick={() => handleUpdateStatus(order._id, order.status)} className="btn btn-outline-success w-75 my-1 text-color">Approve</button>
+                                                    <button onClick={() => handleCancelOrder(order._id)} className="btn btn-outline-danger w-75 my-1 text-color">Cancel</button>
                                                 </ul>
                                             </li>
                                         </ul>
