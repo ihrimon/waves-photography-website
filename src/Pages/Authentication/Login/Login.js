@@ -11,8 +11,6 @@ const Login = () => {
     const [loginData, setLoginData] = useState({});
     const { loginUser, signInWithGoogle, isLoading, authError, user } = useAuth();
 
-    console.log(user)
-
     const location = useLocation();
     const history = useHistory();
 
@@ -23,7 +21,6 @@ const Login = () => {
         const value = e.target.value;
         const newLoginData = { ...loginData };
         newLoginData[field] = value;
-        console.log(newLoginData);
         setLoginData(newLoginData);
     }
 

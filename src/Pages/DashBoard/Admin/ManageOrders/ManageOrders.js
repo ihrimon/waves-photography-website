@@ -21,7 +21,6 @@ const ManageOrders = () => {
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     setUpdater(res)
-                    console.log(res)
                 }
             })
     }
@@ -88,7 +87,7 @@ const ManageOrders = () => {
                                                 </a>
                                                 <ul className="dropdown-menu text-center" aria-labelledby="navbarDropdown">
                                                     <button onClick={() => handleUpdateStatus(order._id, order.status)} className="btn btn-outline-success w-75 my-1 text-color">Pending</button>
-                                                    <button onClick={() => handleUpdateStatus(order._id, order.status)} className="btn btn-outline-success w-75 my-1 text-color">Approve</button>
+                                                    <button onClick={() => handleUpdateStatus(order._id, order.status)} className="btn btn-outline-success w-75 my-1 text-color">Delivered</button>
                                                     <button onClick={() => handleCancelOrder(order._id)} className="btn btn-outline-danger w-75 my-1 text-color">Cancel</button>
                                                 </ul>
                                             </li>

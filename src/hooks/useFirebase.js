@@ -93,7 +93,8 @@ const useFirebase = () => {
     useEffect(() => {
         fetch(`https://pure-wildwood-79743.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
-            .then(data => setAdmin(data.admin))
+            .then(data => console.log(data.admin))
+            // .then(data => setAdmin(data.admin))
     }, [user.email])
 
     // save user in database

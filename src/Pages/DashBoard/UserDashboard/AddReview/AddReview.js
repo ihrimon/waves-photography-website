@@ -23,19 +23,19 @@ const AddReview = () => {
             <div className="text-start">
                 <form onSubmit={handleSubmit(onSubmit)} className="px-4 pb-5">
                     <div className="mb-3">
-                        <label for="exampleFormControlInput1" className="form-label">User Name</label>
+                        <label htmlFor="exampleFormControlInput1" className="form-label">User Name</label>
                         <input type="text" className="form-control" id="exampleFormControlInput1" {...register("name")} defaultValue={user.displayName} placeholder="reviewer name" required />
                     </div>
                     <div className="mb-3">
-                        <label for="exampleFormControlTextarea1" className="form-label">Comments</label>
+                        <label htmlFor="exampleFormControlTextarea1" className="form-label">Comments</label>
                         <textarea className="form-control" id="exampleFormControlTextarea1" {...register("comment")} placeholder="Share your moment" rows="3" required></textarea>
                     </div>
                     <div className="mb-3">
-                        <label for="exampleFormControlInput1" className="form-label">Rating</label>
+                        <label htmlFor="exampleFormControlInput1" className="form-label">Rating</label>
                         <input type="text" className="form-control" id="exampleFormControlInput1" {...register("rating")} placeholder="rating" required />
                     </div>
                     <div className="mb-3">
-                        <label for="exampleFormControlInput1" className="form-label">Img URL</label>
+                        <label htmlFor="exampleFormControlInput1" className="form-label">Img URL</label>
                         {user.photoURL ?
                             <input className="form-control" id="exampleFormControlInput1" {...register("img")} defaultValue={user.photoURL} placeholder="image url" required />
                             :
