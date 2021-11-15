@@ -89,12 +89,13 @@ const useFirebase = () => {
         return () => unsubscribe;
     }, [])
 
-    // set admin from the database
+    // set admin from to database
     useEffect(() => {
         fetch(`https://pure-wildwood-79743.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => console.log(data.admin))
-            // .then(data => setAdmin(data.admin))
+            .then(data => setAdmin(data.admin))
+            .catch(e => { })
     }, [user.email])
 
     // save user in database
