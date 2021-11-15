@@ -8,7 +8,7 @@ const Banner = () => {
     const arrowIcon = <FontAwesomeIcon icon={faLongArrowAltRight} />
 
     return (
-        <div className='container'>
+        <div className="container">
             <div className="img-banner border-radius">
                 <div className="d-flex flex-lg-row flex-column align-items-center">
                     <div className="col-12 pt-5 pt-lg-0 text-light text-left color-theme">

@@ -15,7 +15,7 @@ const Product = ({ product }) => {
                     <h6 className="card-title fw-bold text-color">{name}</h6>
                     <small className="card-text">{description}</small>
                     <p className="fw-bold theme-color mt-3">Price: {price} TK</p>
-                    <Link to={`/purchase/${_id}`}>
+                    <Link to={`/placeOrder/${_id}`}>
                         <button className="btn theme-btn px-5 text-light" service={product}>{cartIcon} <span className="ms-2">Buy Now</span></button>
                     </Link>
                 </div>

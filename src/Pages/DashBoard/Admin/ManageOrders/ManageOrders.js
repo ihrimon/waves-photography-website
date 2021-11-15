@@ -6,21 +6,31 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 const ManageOrders = () => {
     const [orders, setOrders] = useState([]);
     const [updater, setUpdater] = useState();
+    const [shippingStatus, setShippingStatus] = useState();
 
     const dropdownIcon = <FontAwesomeIcon icon={faAngleDown} />
 
     useEffect(() => {
         axios.get('https://pure-wildwood-79743.herokuapp.com/orders')
             .then(res => setOrders(res.data));
-    }, [updater]);
+    }, [updater, shippingStatus]);
 
-    const handleUpdateStatus = (id, status) => {
-        console.log(id, status);
+    const handleApprovedStatus = (id, status) => {
         const data = { id: id, status: status };
         axios.post('https://pure-wildwood-79743.herokuapp.com/updateStatus', data)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     setUpdater(res)
+                }
+            })
+    }
+
+    const handleShippingStatus = (id, status) => {
+        const data = { id: id, status: status };
+        axios.post('https://pure-wildwood-79743.herokuapp.com/updateStatus', data)
+            .then(res => {
+                if (res.data.modifiedCount > 0) {
+                    setShippingStatus(res)
                 }
             })
     }
@@ -49,15 +59,15 @@ const ManageOrders = () => {
             <div className="table-responsive">
                 <table className="table border table-hover">
                     <thead className="bg-color">
-                        <tr>
-                            <th className="text-start text-color">SL.</th>
-                            <th className="text-start text-color">Name</th>
-                            <th className="text-start text-color">Email</th>
-                            <th className="text-start text-color">Address</th>
-                            <th className="text-start text-color">Product Name</th>
-                            <th className="text-start text-color">Price</th>
-                            <th className="text-start text-color">Status</th>
-                            <th className=" text-color">Actions</th>
+                        <tr className="thead-bg">
+                            <th className="text-start text-light">SL.</th>
+                            <th className="text-start text-light">Name</th>
+                            <th className="text-start text-light">Email</th>
+                            <th className="text-start text-light">Address</th>
+                            <th className="text-start text-light">Product Name</th>
+                            <th className="text-start text-light">Price</th>
+                            <th className="text-light">Status</th>
+                            <th className=" text-light">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,14 +78,14 @@ const ManageOrders = () => {
                                     <td className="text-start">{order.name}</td>
                                     <td className="text-start">{order.email}</td>
                                     <td className="text-start">{order.address}</td>
-                                    <td className="text-start">{order.productTitle}</td>
+                                    <td className="text-start">{order.productTitle.slice(0, 30)}...</td>
                                     <td className="text-start">${order.price}</td>
                                     {/* <td className="text-start">{order.status}</td> */}
                                     <td>
                                         {order.status === 'pending' ?
-                                            <span className="bg-warning p-1 rounded text-white d-inline-block">{order.status}</span>
+                                            <span className="text-warning rounded fw-bold ">{order.status}</span>
                                             :
-                                            <span className="bg-success p-1 rounded text-white d-inline-block">{order.status}</span>
+                                            <span className="text-success p-1 rounded fw-bold">{order.status}</span>
                                         }
                                     </td>
 
@@ -86,7 +96,8 @@ const ManageOrders = () => {
                                                     {dropdownIcon} <span className="ms-1">Actions</span>
                                                 </a>
                                                 <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
-                                                    <button onClick={() => handleUpdateStatus(order._id, order.status)} className="btn btn-outline-success w-75 my-1 text-color">Approve</button>
+                                                    <button onClick={() => handleApprovedStatus(order._id, order.status)} className="btn btn-outline-success w-75 my-1 text-color">Approve</button>
+                                                    <button onClick={() => handleShippingStatus(order._id, order.status)} className="btn btn-outline-success w-75 my-1 text-color">Shipping</button>
                                                     <button onClick={() => handleCancelOrder(order._id)} className="btn btn-outline-danger w-75 my-1 text-color">Cancel</button>
                                                 </ul>
                                             </li>

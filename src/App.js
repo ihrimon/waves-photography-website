@@ -6,7 +6,7 @@ import AllProducts from './Pages/AllProducts/AllProducts';
 import NotFound from './Pages/NotFound/NotFound';
 import AuthProvider from './Context/AuthProvider';
 import Register from './Pages/Authentication/Register/Register';
-import Purchase from './Pages/Home/Purchase/Purchase';
+import PlaceOrder from './Pages/Home/PlaceOrder/PlaceOrder';
 import PrivateRoute from './Pages/Authentication/PrivateRoute/PrivateRoute';
 import DashBoard from './Pages/DashBoard/DashBoard';
 import MakeAdmin from './Pages/DashBoard/Admin/MakeAdmin/MakeAdmin';
@@ -31,8 +31,8 @@ function App() {
             <Route path="/about">
               <About></About>
             </Route>
-            <PrivateRoute path="/purchase/:productId">
-              <Purchase></Purchase>
+            <PrivateRoute path="/placeOrder/:productId">
+              <PlaceOrder></PlaceOrder>
             </PrivateRoute>
             <Route path="/makeAdmin">
               <MakeAdmin></MakeAdmin>

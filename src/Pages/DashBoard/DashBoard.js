@@ -9,7 +9,6 @@ import MakeAdmin from './Admin/MakeAdmin/MakeAdmin';
 import logo from '../../images/logo.png';
 import useAuth from '../../hooks/useAuth';
 import Home from '../Home/Home/Home';
-import img1 from '../../images/dashboard-1.png'
 import ManageProducts from './Admin/MangeProducts/ManageProducts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faChartLine, faMoneyCheckAlt, faCheckCircle, faSignOutAlt, faUserShield, faPlus, faTasks, faCompress } from '@fortawesome/free-solid-svg-icons';

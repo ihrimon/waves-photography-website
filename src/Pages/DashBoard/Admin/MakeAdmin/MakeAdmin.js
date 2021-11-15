@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 const MakeAdmin = () => {
-    const [email, setEmail] = useState('');
+    const [adminData, setAdminData] = useState('');
     const [success, setSuccess] = useState(false);
+    const adminIcon = <FontAwesomeIcon icon={faUser} />
 
     const handleOnBlur = e => {
-        setEmail(e.target.value);
+        const field = e.target.name;
+        const value = e.target.value;
+        const newAdminData = { ...adminData };
+        newAdminData[field] = value;
+        console.log(newAdminData);
+        setAdminData(newAdminData);
     }
 
     const handleAdminSubmit = e => {
-        const user = { email };
+        const user = { adminData };
 
         fetch('https://pure-wildwood-79743.herokuapp.com/users/admin', {
             method: 'PUT',
@@ -20,7 +28,7 @@ const MakeAdmin = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
+                console.log(data)
                 if (data.matchedCount) {
                     setSuccess(true);
                     console.log(data)
@@ -55,7 +63,7 @@ const MakeAdmin = () => {
                         <label htmlFor="floatingPassword">Password</label>
                     </div>
                 </div>
-                <button type="submit" className="btn theme-btn text-light px-5" >Make Admin</button>
+                <button type="submit" className="btn theme-btn text-light px-5" >{adminIcon} <span className="ms-2">Make Admin</span></button>
             </form >
             {success && <div className="alert alert-success" role="alert">
                 Made admin Successfully.!

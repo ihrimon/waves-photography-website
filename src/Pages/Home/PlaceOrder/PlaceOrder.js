@@ -7,7 +7,7 @@ import Navigation from '../../Shared/Navigation/Navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShippingFast, faFileInvoiceDollar, faCog, faHeadset, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
-const Purchase = () => {
+const PlaceOrder = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState({});
     const { register, handleSubmit, reset } = useForm();
@@ -18,7 +18,6 @@ const Purchase = () => {
     const GuaranteeIcon = <FontAwesomeIcon icon={faCog} />
     const supportIcon = <FontAwesomeIcon icon={faHeadset} />
     const submitIcon = <FontAwesomeIcon icon={faCheckCircle} />
-
 
     useEffect(() => {
         fetch(`https://pure-wildwood-79743.herokuapp.com/products/${productId}`)
@@ -95,18 +94,20 @@ const Purchase = () => {
                                         <label htmlFor="exampleFormControlInput1" className="form-label">User Name</label>
                                         <input type="text" className="form-control" id="exampleFormControlInput1" defaultValue={user.displayName} {...register("name", { required: true })} />
                                     </div>
+
                                     <div className="mb-3">
                                         <label htmlFor="exampleFormControlInput1" className="form-label">User Email</label>
                                         <input type="email" className="form-control" id="exampleFormControlInput1" defaultValue={user.email} {...register("email", { required: true })} />
                                     </div>
+
                                     <div className="mb-3">
                                         <label htmlFor="exampleFormControlInput1" className="form-label">Product Title</label>
-                                        <input type="text" className="form-control" id="exampleFormControlInput1" defaultValue={product.name}{...register("productTitle", { required: true })} required />
+                                        {product.name && <input type="text" className="form-control" id="exampleFormControlInput1" defaultValue={product.name} {...register("productTitle", { required: true })} />}
                                     </div>
 
                                     <div className="mb-3">
                                         <label htmlFor="exampleFormControlInput1" className="form-label">Product Price</label>
-                                        <input type="text" className="form-control" id="exampleFormControlInput1" defaultValue={product.price} {...register("price", { required: true })} />
+                                        {product.price && <input type="text" className="form-control" id="exampleFormControlInput1" defaultValue={product.price} {...register("price", { required: true })} />}
                                     </div>
 
                                     <div className="mb-3">
@@ -128,4 +129,4 @@ const Purchase = () => {
     );
 };
 
-export default Purchase;
+export default PlaceOrder;

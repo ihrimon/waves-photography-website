@@ -43,7 +43,7 @@ const AllProducts = () => {
                                             <h6 className="card-title fw-bold text-color">{product.name}</h6>
                                             <small className="card-text">{product.description}</small>
                                             <p className="fw-bold theme-color mt-3">Price: {product.price} TK</p>
-                                            <Link to={`/purchase/${product._id}`}>
+                                            <Link to={`/placeOrder/${product._id}`}>
                                                 <button className="btn theme-btn px-5 text-light" product={product}>{cartIcon} <span className="ms-2">Buy Now</span></button>
                                             </Link>
                                         </div>
