@@ -16,15 +16,14 @@ const useFirebase = () => {
     // login process with google
     const googleProvider = new GoogleAuthProvider();
 
-    const signInWithGoogle = (location, history) => {
+    const signInWithGoogle = (history) => {
         setIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const user = result.user;
                 saveUser(user.email, user.displayName, 'PUT')
                 setAuthError('');
-                const destination = location?.state?.from || '/';
-                history.replace(destination);
+                history.replace('/');
             }).catch((error) => {
                 setAuthError(error.message);
             })
@@ -87,15 +86,13 @@ const useFirebase = () => {
             setIsLoading(false);
         });
         return () => unsubscribe;
-    }, [])
+    }, [auth])
 
     // set admin from to database
     useEffect(() => {
         fetch(`https://pure-wildwood-79743.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
-            .then(data => console.log(data.admin))
             .then(data => setAdmin(data.admin))
-            .catch(e => { })
     }, [user.email])
 
     // save user in database

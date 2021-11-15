@@ -68,7 +68,7 @@ const ManageOrders = () => {
                                     <td className="text-start">{order.name}</td>
                                     <td className="text-start">{order.email}</td>
                                     <td className="text-start">{order.address}</td>
-                                    <td className="text-start">{order.productTitle.slice(0, 30)}...</td>
+                                    <td className="text-start">{order.productTitle.slice(0, 26)}...</td>
                                     <td className="text-start">৳ {order.price}</td>
                                     {/* <td className="text-start">{order.status}</td> */}
                                     <td>

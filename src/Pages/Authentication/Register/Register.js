@@ -28,7 +28,7 @@ const Register = () => {
         e.preventDefault();
     }
 
-    const handleGoogleSignIn = () => {
+    const handleGoogleSignIn = (history) => {
         signInWithGoogle(history);
     }
 
@@ -39,7 +39,7 @@ const Register = () => {
                 <h4 className="theme-color pt-4">Create an Account</h4>
                 <p><small>use social account</small></p>
                 <div>
-                    <button onClick={handleGoogleSignIn} type="submit" className="btn btn-google text-light me-2">Google login</button>
+                    <button onClick={()=>handleGoogleSignIn(history)} type="submit" className="btn btn-google text-light me-2">Google login</button>
                 </div>
                 <form onSubmit={handleRegistrationSubmit} className="w-100 mx-auto mt-3">
                     <p><small>or use your email account</small></p>

@@ -14,7 +14,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faChartLine, faMoneyCheckAlt, faCheckCircle, faSignOutAlt, faUserShield, faPlus, faTasks, faCompress } from '@fortawesome/free-solid-svg-icons';
 import AdminDashboard from './Admin/Dashboard/AdminDashboard';
 import UserDashboard from './UserDashboard/Dashboarduser/UserDashboard';
-import Footer from '../Shared/Footer/Footer';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();

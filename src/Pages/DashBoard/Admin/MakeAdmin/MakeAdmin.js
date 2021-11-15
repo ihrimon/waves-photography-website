@@ -12,7 +12,6 @@ const MakeAdmin = () => {
         const value = e.target.value;
         const newAdminData = { ...adminData };
         newAdminData[field] = value;
-        console.log(newAdminData);
         setAdminData(newAdminData);
     }
 

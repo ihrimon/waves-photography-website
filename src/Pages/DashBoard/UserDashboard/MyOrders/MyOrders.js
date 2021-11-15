@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import swal from 'sweetalert';
 import useAuth from '../../../../hooks/useAuth';
 
 
