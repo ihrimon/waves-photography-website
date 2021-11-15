@@ -6,31 +6,21 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 const ManageOrders = () => {
     const [orders, setOrders] = useState([]);
     const [updater, setUpdater] = useState();
-    const [shippingStatus, setShippingStatus] = useState();
 
     const dropdownIcon = <FontAwesomeIcon icon={faAngleDown} />
 
     useEffect(() => {
         axios.get('https://pure-wildwood-79743.herokuapp.com/orders')
             .then(res => setOrders(res.data));
-    }, [updater, shippingStatus]);
+    }, [updater]);
 
-    const handleApprovedStatus = (id, status) => {
+    const handleUpdateStatus = (id, status) => {
         const data = { id: id, status: status };
         axios.post('https://pure-wildwood-79743.herokuapp.com/updateStatus', data)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     setUpdater(res)
-                }
-            })
-    }
-
-    const handleShippingStatus = (id, status) => {
-        const data = { id: id, status: status };
-        axios.post('https://pure-wildwood-79743.herokuapp.com/updateStatus', data)
-            .then(res => {
-                if (res.data.modifiedCount > 0) {
-                    setShippingStatus(res)
+                    console.log(res)
                 }
             })
     }
@@ -96,8 +86,7 @@ const ManageOrders = () => {
                                                     {dropdownIcon} <span className="ms-1">Actions</span>
                                                 </a>
                                                 <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
-                                                    <button onClick={() => handleApprovedStatus(order._id, order.status)} className="btn btn-outline-success w-75 my-1 text-color">Approve</button>
-                                                    <button onClick={() => handleShippingStatus(order._id, order.status)} className="btn btn-outline-success w-75 my-1 text-color">Shipping</button>
+                                                    <button onClick={() => handleUpdateStatus(order._id, order.status)} className="btn btn-outline-success w-75 my-1 text-color">Approve</button>
                                                     <button onClick={() => handleCancelOrder(order._id)} className="btn btn-outline-danger w-75 my-1 text-color">Cancel</button>
                                                 </ul>
                                             </li>
