@@ -18,7 +18,7 @@ const AddReview = () => {
     };
 
     return (
-        <div className="container w-50 shadow-lg my-5">
+        <div className="container w-75 shadow-lg my-5">
             <h4 className="text-center py-4">Add Review</h4>
             <div className="text-start">
                 <form onSubmit={handleSubmit(onSubmit)} className="px-4 pb-5">

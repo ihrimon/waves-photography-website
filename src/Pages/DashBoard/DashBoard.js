@@ -149,9 +149,6 @@ const Dashboard = () => {
                         <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                             <span className="navbar-toggler-icon"></span>
                         </button>
-                        <NavLink className="navbar-brand mx-auto" to="#">
-                            <img src={logo} alt="" className="img-fluid" width={'120px'} />
-                        </NavLink>
                         <div className="offcanvas offcanvas-start w-50" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                             <div className="offcanvas-header">
                                 <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Waves Photography</h5>

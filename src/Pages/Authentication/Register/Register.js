@@ -35,13 +35,13 @@ const Register = () => {
     return (
         <div>
             <Navigation></Navigation>
-            {!isLoading && <div className="w-25 bg-color mx-auto my-5 border-radius custom-shadow">
+            {!isLoading && <div className="form-style bg-color mx-auto my-5 border-radius custom-shadow">
                 <h4 className="theme-color pt-4">Create an Account</h4>
                 <p><small>use social account</small></p>
                 <div>
                     <button onClick={() => handleGoogleSignIn(history)} type="submit" className="btn btn-google text-light me-2">Google login</button>
                 </div>
-                <form onSubmit={handleRegistrationSubmit} className="w-100 mx-auto mt-3">
+                <form onSubmit={handleRegistrationSubmit} className="w-75 mx-auto mt-3">
                     <p><small>or use your email account</small></p>
                     <div className="form-floating mb-3">
                         <input
