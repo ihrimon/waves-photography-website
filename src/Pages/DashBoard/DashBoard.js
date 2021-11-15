@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faChartLine, faMoneyCheckAlt, faCheckCircle, faSignOutAlt, faUserShield, faPlus, faTasks, faCompress } from '@fortawesome/free-solid-svg-icons';
 import AdminDashboard from './Admin/Dashboard/AdminDashboard';
 import UserDashboard from './UserDashboard/Dashboarduser/UserDashboard';
+import Footer from '../Shared/Footer/Footer';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
@@ -155,7 +156,7 @@ const Dashboard = () => {
                         <NavLink className="navbar-brand mx-auto" to="#">
                             <img src={logo} alt="" className="img-fluid" width={'120px'} />
                         </NavLink>
-                        <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                        <div className="offcanvas offcanvas-start w-50" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                             <div className="offcanvas-header">
                                 <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Waves Photography</h5>
                                 <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -163,7 +164,7 @@ const Dashboard = () => {
                             <div className="offcanvas-body">
                                 <ul className="list-group list-group-flush">
                                     <li className="list-group-item text-start border border-0">
-                                        <NavLink className="nav-link  text-color" aria-current="page" activeStyle={{ fontWeight: 'bold' }} to="/home">{homeIcon} <span className="ms-2">Home</span></NavLink>
+                                        <NavLink className="nav-link  text-color" aria-current="page" to="/home">{homeIcon} <span className="ms-2">Home</span></NavLink>
                                     </li>
 
                                     {!admin &&
@@ -179,7 +180,6 @@ const Dashboard = () => {
                                             </li>
                                         </ul>
                                     }
-
 
                                     {admin &&
                                         <ul className="list-group list-group-flush">
@@ -233,6 +233,7 @@ const Dashboard = () => {
                     </div>
                 </nav>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

@@ -45,6 +45,7 @@ const ManageProducts = () => {
                         <tr>
                             <th className="text-start">SL.</th>
                             <th className="text-start">Product Name</th>
+                            <th className="text-start">Product Image</th>
                             <th className="text-start">Amount</th>
                             <th className="text-start">Status</th>
                             <th className="">Manage</th>
@@ -56,7 +57,8 @@ const ManageProducts = () => {
                                 <tr key={product._id}>
                                     <th className="text-start" scope="row">{index + 1}</th>
                                     <td className="text-start">{product.name}</td>
-                                    <td className="text-start">${product.price}</td>
+                                    <td className="text-start"><img src={product.img} className="img-fluid product-img" alt="" /> </td>
+                                    <td className="text-start">৳ {product.price}</td>
                                     <td className="text-start">In Stock</td>
                                     <td><button onClick={() => handleRemoveProduct(product._id)} className="btn btn-sm btn-danger">Delete</button></td>
                                 </tr>

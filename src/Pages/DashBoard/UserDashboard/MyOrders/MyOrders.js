@@ -59,7 +59,7 @@ const MyOrders = () => {
                                     <td className="text-start">{myOrder.email}</td>
                                     <td className="text-start">{myOrder.address}</td>
                                     <td className="text-start">{myOrder.productTitle}</td>
-                                    <td className="text-start">$ {myOrder.price}</td>
+                                    <td className="text-start">৳ {myOrder.price}</td>
                                     <td>
                                         {
                                             myOrder.status === 'pending' ? <td className="text-danger fw-bold">{myOrder.status}</td> : <td className="text-success fw-bold">{myOrder.status}</td>

@@ -27,8 +27,8 @@ const AddReview = () => {
                         <input type="text" className="form-control" id="exampleFormControlInput1" {...register("name")} defaultValue={user.displayName} placeholder="reviewer name" required />
                     </div>
                     <div className="mb-3">
-                        <label for="exampleFormControlTextarea1" className="form-label">Description</label>
-                        <textarea className="form-control" id="exampleFormControlTextarea1" {...register("comment")} placeholder="some text here" rows="3" required></textarea>
+                        <label for="exampleFormControlTextarea1" className="form-label">Comments</label>
+                        <textarea className="form-control" id="exampleFormControlTextarea1" {...register("comment")} placeholder="Share your moment" rows="3" required></textarea>
                     </div>
                     <div className="mb-3">
                         <label for="exampleFormControlInput1" className="form-label">Rating</label>
