@@ -233,7 +233,6 @@ const Dashboard = () => {
                     </div>
                 </nav>
             </div>
-            <Footer></Footer>
         </div>
     );
 };

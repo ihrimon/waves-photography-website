@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './About.css';
 import Navigation from '../Shared/Navigation/Navigation';
 import Footer from '../Shared/Footer/Footer';
 import img from '../../images/subscription.png'
@@ -20,7 +19,7 @@ const About = () => {
                 <div className="img-banner border-radius">
                     <div className="d-flex flex-lg-row flex-column align-items-center">
                         <div className="col-12 pt-5 pt-lg-0 text-light text-left color-theme">
-                            <h className="text-size text-light mt-3 w-75 mx-auto" >About Us</h>
+                            <h1 className="mt-3 w-75 mx-auto text-color fw-bold" >About Us</h1>
                         </div>
                     </div>
                 </div>
@@ -38,6 +37,8 @@ const About = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Delivery Service */}
             <div className="container mx-auto row row-cols-2 row-cols-lg-4 g-3 g-lg-4 mt-3">
                 <div className="col">
                     <div className="border-end">

@@ -17,6 +17,7 @@ const AllProducts = () => {
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
+    
     const { isLoading } = useAuth();
     if (isLoading) {
         return (
@@ -31,7 +32,7 @@ const AllProducts = () => {
         <div>
             <Navigation></Navigation>
             <div className="container my-5">
-                <h2 className="mb-3">Explore All Products</h2>
+                <h2 className="mb-5 text-color fw-bold">Explore All Products</h2>
                 <div className="row row-cols-1 row-cols-md-3 g-4">
                     {
                         products.map(product =>

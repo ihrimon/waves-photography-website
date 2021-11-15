@@ -11,14 +11,14 @@ const AddReview = () => {
         axios.post('https://pure-wildwood-79743.herokuapp.com/reviews', data)
             .then(res => {
                 if (res.data.insertedId) {
-                    alert('Successfully Added')
+                    alert('Review Successfully Added')
                     reset();
                 }
             })
     };
 
     return (
-        <div className="container w-lg-25 shadow-lg my-5">
+        <div className="container w-50 shadow-lg my-5">
             <h4 className="text-center py-4">Add Review</h4>
             <div className="text-start">
                 <form onSubmit={handleSubmit(onSubmit)} className="px-4 pb-5">

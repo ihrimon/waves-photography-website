@@ -67,6 +67,9 @@ const Login = () => {
                             required />
                         <label htmlFor="floatingPassword">Password</label>
                     </div>
+                    {authError && <div className="alert alert-danger mx-auto" role="alert">
+                        Opps! {authError} Try Again
+                    </div>}
                     <button type="submit" className="btn theme-btn px-5 text-light my-3">{submitIcon} <span className="ms-2">Login</span></button>
                 </form>
                 <p className="pb-4">Have an account? <Link to="/register" className="text-decoration-none theme-color fw-bold">Register</Link></p>
@@ -76,9 +79,6 @@ const Login = () => {
                 <span className="visually-hidden">Loading...</span>
             </div>
             }
-            {authError && <div className="alert alert-danger w-50 mx-auto" role="alert">
-                {authError}
-            </div>}
             <Footer></Footer>
         </div>
     );

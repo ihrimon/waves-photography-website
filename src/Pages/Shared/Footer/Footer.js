@@ -1,7 +1,4 @@
 import React from 'react';
-// import { IoLocationSharp } from "react-icons/io5";
-// import { BsFillTelephoneFill } from "react-icons/bs";
-// import { MdEmail } from "react-icons/md";
 import logo from '../../../images/logo.png';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -55,7 +52,7 @@ const Footer = () => {
                                 <img src={logo} width="100px" alt="" />
                             </NavLink>
                         </div>
-                        <div className="border-left">
+                        <div>
                             <p className="mt-5 mb-0 pb-5 text-start text-light">Copyright ©waves-photography-2021 | This website is made by Imam Hassan Rimon</p>
                         </div>
                     </div>

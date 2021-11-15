@@ -7,6 +7,8 @@ import img5 from '../../../images/brand-5.png';
 import img6 from '../../../images/brand-6.png';
 import img7 from '../../../images/brand-7.png';
 import img8 from '../../../images/brand-8.png';
+import img9 from '../../../images/brand-9.png';
+import img10 from '../../../images/brand-10.png';
 
 const Brands = () => {
     return (
@@ -16,53 +18,53 @@ const Brands = () => {
                 <hr />
                 <div className="row row-cols-2 row-cols-lg-5 g-5 g-lg-5">
                     <div className="col">
-                        <div className="p-3 border bg-light ">
+                        <div className="p-3 border bg-light product-card">
                             <img src={img1} className="w-75" alt="" />
                         </div>
                     </div>
                     <div className="col">
-                        <div className="p-3 border bg-light">
+                        <div className="p-3 border bg-light product-card">
                             <img src={img2} className="w-75" alt="" />
                         </div>
                     </div>
                     <div className="col">
-                        <div className="p-3 border bg-light">
+                        <div className="p-3 border bg-light product-card">
                             <img src={img3} className="w-75" alt="" />
                         </div>
                     </div>
                     <div className="col">
-                        <div className="p-3 border bg-light">
+                        <div className="p-3 border bg-light product-card">
                             <img src={img4} className="w-75" alt="" />
                         </div>
                     </div>
                     <div className="col">
-                        <div className="p-3 border bg-light">
+                        <div className="p-3 border bg-light product-card">
                             <img src={img5} className="w-75" alt="" />
                         </div>
                     </div>
                     <div className="col">
-                        <div className="p-3 border bg-light">
+                        <div className="p-3 border bg-light product-card">
                             <img src={img6} className="w-75" alt="" />
                         </div>
                     </div>
                     <div className="col">
-                        <div className="p-3 border bg-light">
+                        <div className="p-3 border bg-light product-card">
                             <img src={img7} className="w-75" alt="" />
                         </div>
                     </div>
                     <div className="col">
-                        <div className="p-3 border bg-light">
+                        <div className="p-3 border bg-light product-card">
                             <img src={img8} className="w-75" alt="" />
                         </div>
                     </div>
                     <div className="col">
-                        <div className="p-3 border bg-light">
-                            <img src={img7} className="w-75" alt="" />
+                        <div className="p-3 border bg-light product-card">
+                            <img src={img9} className="w-75" alt="" />
                         </div>
                     </div>
                     <div className="col">
-                        <div className="p-3 border bg-light">
-                            <img src={img8} className="w-75" alt="" />
+                        <div className="p-3 border bg-light product-card">
+                            <img src={img10} className="w-75" alt="" />
                         </div>
                     </div>
                 </div>

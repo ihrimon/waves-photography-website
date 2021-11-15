@@ -82,11 +82,11 @@ const ManageOrders = () => {
 
                                     <td>
                                         <ul style={{ listStyleType: "none" }}>
-                                            <li class="nav-item dropdown px-3 text-color">
-                                                <a class="nav-link text-color" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <li className="nav-item dropdown px-3 text-color">
+                                                <a className="nav-link text-color" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                     {dropdownIcon} <span className="ms-1">Actions</span>
                                                 </a>
-                                                <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
+                                                <ul className="dropdown-menu text-center" aria-labelledby="navbarDropdown">
                                                     <button onClick={() => handleUpdateStatus(order._id, order.status)} className="btn btn-outline-success w-75 my-1 text-color">Pending</button>
                                                     <button onClick={() => handleUpdateStatus(order._id, order.status)} className="btn btn-outline-success w-75 my-1 text-color">Approve</button>
                                                     <button onClick={() => handleCancelOrder(order._id)} className="btn btn-outline-danger w-75 my-1 text-color">Cancel</button>
