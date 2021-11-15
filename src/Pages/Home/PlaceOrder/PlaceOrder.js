@@ -23,7 +23,7 @@ const PlaceOrder = () => {
         fetch(`https://pure-wildwood-79743.herokuapp.com/products/${productId}`)
             .then(res => res.json())
             .then(data => setProduct(data))
-    }, [])
+    }, [productId])
 
     const onSubmit = data => {
         fetch('https://pure-wildwood-79743.herokuapp.com/orders', {

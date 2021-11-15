@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import Footer from '../../../Shared/Footer/Footer';
 
 const ManageOrders = () => {
     const [orders, setOrders] = useState([]);
@@ -15,6 +14,7 @@ const ManageOrders = () => {
             .then(res => setOrders(res.data));
     }, [updater]);
 
+    // Change status
     const handleUpdateStatus = (id, status) => {
         const data = { id: id, status: status };
         axios.post('https://pure-wildwood-79743.herokuapp.com/updateStatus', data)
@@ -27,7 +27,7 @@ const ManageOrders = () => {
 
     // Cancel Order
     const handleCancelOrder = id => {
-        const confirmation = window.confirm("Are you sure you want to delete thik item.")
+        const confirmation = window.confirm("Are you sure you want to cancel this itme?")
         if (confirmation) {
             axios.delete(`https://pure-wildwood-79743.herokuapp.com/orders/${id}`)
                 .then(res => {
@@ -45,7 +45,7 @@ const ManageOrders = () => {
 
     return (
         <div className="container">
-            <h3 className="my-5 mb-3 text-color">Manage All Orders</h3>
+            <h3 className="my-5 mb-3 text-color fw-bold">Manage All Orders</h3>
             <div className="table-responsive">
                 <table className="table border table-hover">
                     <thead className="bg-color">
@@ -68,8 +68,8 @@ const ManageOrders = () => {
                                     <td className="text-start">{order.name}</td>
                                     <td className="text-start">{order.email}</td>
                                     <td className="text-start">{order.address}</td>
-                                    <td className="text-start">{order.productTitle.slice(0, 26)}...</td>
-                                    <td className="text-start">৳ {order.price}</td>
+                                    <td className="text-start">{order.productTitle.slice(0, 20)}...</td>
+                                    <td className="text-start">৳{order.price}</td>
                                     {/* <td className="text-start">{order.status}</td> */}
                                     <td>
                                         {order.status === 'Pending' ?
@@ -86,7 +86,7 @@ const ManageOrders = () => {
                                                     {dropdownIcon} <span className="ms-1">Actions</span>
                                                 </a>
                                                 <ul className="dropdown-menu text-center" aria-labelledby="navbarDropdown">
-                                                    <button onClick={() => handleUpdateStatus(order._id, order.status)} className="btn btn-outline-success w-75 my-1 text-color">Pending</button>
+                                                    <button onClick={() => handleUpdateStatus(order._id, order.status)} className="btn btn-outline-warning w-75 my-1 text-color">Pending</button>
                                                     <button onClick={() => handleUpdateStatus(order._id, order.status)} className="btn btn-outline-success w-75 my-1 text-color">Delivered</button>
                                                     <button onClick={() => handleCancelOrder(order._id)} className="btn btn-outline-danger w-75 my-1 text-color">Cancel</button>
                                                 </ul>
