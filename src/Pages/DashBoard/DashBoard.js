@@ -104,7 +104,7 @@ const Dashboard = () => {
                             {/* Nested Routing */}
                             <Switch>
                                 {/* User Dashboard */}
-                                <Route exact path={`${path}/userDashboard`}>
+                                <Route exact path={path}>
                                     <UserDashboard></UserDashboard>
                                 </Route>
                                 <Route path={`${path}/pay`}>
@@ -121,7 +121,7 @@ const Dashboard = () => {
                                 </Route>
 
                                 {/* Admin Dashbaord */}
-                                <Route exact path={`${path}/adminDashboard`}>
+                                <Route exact path={path}>
                                     <AdminDashboard></AdminDashboard>
                                 </Route>
                                 <Route path={`${path}/manageOrders`}>

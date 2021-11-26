@@ -32,7 +32,7 @@ const About = () => {
                     <div className=" col-lg-6 col-12 text-start mt-3">
                         <h5 className="theme-color">The Best Camera forever</h5>
                         <h1 className="text-color">About Waves Photography</h1>
-                        <p>Very Safe, Private, And Spacious Luxury Homes. We'll Help You Go life Safely. Travel Safely With the wonder travel for $2,500 Per Month With No Nightly Rates, Taxes or Fees. First-Class Service.</p>
+                        <p>Very Safe, Private, And Spacious Luxury Homes. We'll Help You Go life Safely. Travel Safely With the wonder travel for $2,000 Per Month With No Nightly Rates, Taxes or Fees. First-Class Service.</p>
                         <Link to="/allProducts"><button className="btn theme-btn text-light px-5 mt-4 rounded-0" type="submit" >Explore...</button></Link>
                     </div>
                 </div>
